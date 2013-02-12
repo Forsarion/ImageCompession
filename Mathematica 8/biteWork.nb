@@ -1,0 +1,370 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 8.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     11113,        361]
+NotebookOptionsPosition[     10043,        318]
+NotebookOutlinePosition[     10400,        334]
+CellTagsIndexPosition[     10357,        331]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"getbits", " ", "=", " ", 
+   RowBox[{"x", " ", "\[Function]", " ", 
+    RowBox[{"(", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"lastbit", "[", "x_", "]"}], ":=", " ", 
+       RowBox[{
+        RowBox[{"\[LeftCeiling]", 
+         RowBox[{"x", "/", "2"}], "\[RightCeiling]"}], "-", 
+        RowBox[{"\[LeftFloor]", 
+         RowBox[{"x", "/", "2"}], "\[RightFloor]"}]}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"collectBits", "[", 
+        RowBox[{"x_", ",", "bits_"}], "]"}], " ", ":=", " ", 
+       RowBox[{
+        RowBox[{"collectBits", "[", 
+         RowBox[{
+          RowBox[{"\[LeftFloor]", 
+           RowBox[{"x", "/", "2"}], "\[RightFloor]"}], ",", 
+          RowBox[{"Append", "[", 
+           RowBox[{"bits", ",", 
+            RowBox[{"lastbit", "[", "x", "]"}]}], "]"}]}], "]"}], "/;", 
+        RowBox[{"x", ">", "0"}]}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"collectBits", "[", 
+        RowBox[{"x_", ",", "bits_"}], "]"}], " ", ":=", " ", 
+       RowBox[{"bits", " ", "/;", " ", 
+        RowBox[{"x", " ", "\[Equal]", " ", "0"}]}]}], ";", 
+      "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{"collectBits", "[", 
+       RowBox[{"x", ",", 
+        RowBox[{"{", "}"}]}], "]"}]}], "\[IndentingNewLine]", ")"}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"getbitcube", "[", "t_", "]"}], " ", ":=", " ", 
+   RowBox[{
+    RowBox[{"Map", "[", 
+     RowBox[{"getbits", ",", "t", ",", 
+      RowBox[{"{", "2", "}"}]}], "]"}], " ", "//", " ", "PadRight"}]}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.569424856938155*^9, 3.56942494134192*^9}, 
+   3.569424983969174*^9, {3.5694250480774393`*^9, 3.569425125618137*^9}, {
+   3.5694252828699017`*^9, 3.5694253260715446`*^9}, {3.569425416879497*^9, 
+   3.5694254405692673`*^9}, {3.56942552760672*^9, 3.569425682680119*^9}, {
+   3.5694257934725933`*^9, 3.569425797727319*^9}, {3.569425835934806*^9, 
+   3.569425836373884*^9}, {3.569606542564249*^9, 3.569606556797699*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"transformant", " ", "=", " ", 
+  RowBox[{"(", GridBox[{
+     {"10", "5"},
+     {"8", "15"}
+    }], ")"}]}]], "Input",
+ CellChangeTimes->{
+  3.569425999366783*^9, {3.5694260335054407`*^9, 3.5694260836195107`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"10", ",", "5"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"8", ",", "15"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.569426086525316*^9, 3.569426663553546*^9, 
+  3.569606504157854*^9, 3.569606603670089*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"bitcube", " ", "=", " ", 
+  RowBox[{"getbitcube", "[", "transformant", "]"}]}]], "Input",
+ CellChangeTimes->{{3.569426324483614*^9, 3.569426345766438*^9}, {
+  3.569427121757156*^9, 3.56942714104263*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"0", ",", "1", ",", "0", ",", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", "0", ",", "1", ",", "0"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"0", ",", "0", ",", "0", ",", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", "1", ",", "1", ",", "1"}], "}"}]}], "}"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{{3.569426335797118*^9, 3.56942634619065*^9}, {
+   3.569426613458212*^9, 3.5694266321568537`*^9}, 3.5694266636208363`*^9, 
+   3.569426879657054*^9, {3.569426917487294*^9, 3.569426937121546*^9}, 
+   3.569427141929778*^9, 3.569427576608224*^9, 3.5696065042577267`*^9, 
+   3.569606605743876*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"bitPlanes", " ", "=", " ", 
+  RowBox[{"Flatten", "[", 
+   RowBox[{"bitcube", ",", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", "3", "}"}], ",", 
+      RowBox[{"{", "1", "}"}], ",", 
+      RowBox[{"{", "2", "}"}]}], "}"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.56942760892315*^9, 3.56942762946395*^9}, {
+  3.5694276845526*^9, 3.569427728801791*^9}, {3.569428546227466*^9, 
+  3.569428555842657*^9}, {3.569606608790638*^9, 3.569606611181663*^9}, {
+  3.569609081212453*^9, 3.569609083827692*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"0", ",", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "1"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"1", ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "1"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"0", ",", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "1"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"1", ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", "1"}], "}"}]}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.569427630411895*^9, 3.569427692003319*^9, 
+  3.569427729800867*^9, 3.5694285586723413`*^9, 3.569606504294073*^9, 
+  3.569606615054246*^9, 3.569609085851955*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"bitSequences", " ", "=", " ", 
+  RowBox[{"Flatten", "[", 
+   RowBox[{"bitPlanes", ",", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", "1", "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"2", ",", "3"}], "}"}]}], "}"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.569428566275092*^9, 3.5694286054421864`*^9}, 
+   3.569606691676301*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"0", ",", "1", ",", "0", ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "0", ",", "0", ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "1", ",", "0", ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "0", ",", "1", ",", "1"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.569428606262919*^9, 3.5696065043266993`*^9}]
+}, Open  ]],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"fromBits", "[", "b_", "]"}], " ", ":=", " ", 
+   RowBox[{"(", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"f", "[", 
+       RowBox[{"number_", ",", "bit_"}], "]"}], " ", ":=", " ", 
+      RowBox[{
+       RowBox[{"number", "*", "2"}], " ", "+", " ", "bit"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Fold", "[", 
+      RowBox[{"f", ",", "0", ",", 
+       RowBox[{"Reverse", " ", "@", " ", "b"}]}], "]"}]}], 
+    "\[IndentingNewLine]", ")"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"formPlane", "[", "s_", "]"}], " ", ":=", " ", 
+   RowBox[{"Partition", "[", 
+    RowBox[{"s", ",", 
+     RowBox[{"Ceiling", " ", "@", " ", 
+      RowBox[{"Log", "[", 
+       RowBox[{"2", ",", " ", 
+        RowBox[{"Length", " ", "@", " ", "s"}]}], "]"}]}]}], "]"}]}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.569606710955736*^9, 3.56960677289247*^9}, {
+   3.569607492301454*^9, 3.569607519085079*^9}, {3.569607645825403*^9, 
+   3.569607653533224*^9}, {3.5696087550073023`*^9, 3.56960876737842*^9}, 
+   3.569609840064089*^9, {3.569609888796549*^9, 3.569609889809861*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"planes", " ", "=", " ", 
+  RowBox[{"formPlane", " ", "/@", " ", "bitSequences"}]}]], "Input",
+ CellChangeTimes->{{3.5696096567116528`*^9, 3.5696096793025637`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"0", ",", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "1"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"1", ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "1"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"0", ",", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "1"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"1", ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", "1"}], "}"}]}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.569609680266531*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"cube", " ", "=", " ", 
+  RowBox[{"Flatten", "[", 
+   RowBox[{"planes", ",", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", "2", "}"}], ",", 
+      RowBox[{"{", "3", "}"}], ",", 
+      RowBox[{"{", "1", "}"}]}], "}"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.569609692317793*^9, 3.569609747141622*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"0", ",", "1", ",", "0", ",", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", "0", ",", "1", ",", "0"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"0", ",", "0", ",", "0", ",", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", "1", ",", "1", ",", "1"}], "}"}]}], "}"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{{3.569609732255341*^9, 3.569609750025231*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Map", "[", 
+  RowBox[{"fromBits", ",", "cube", ",", 
+   RowBox[{"{", "2", "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.569609742116372*^9, 3.569609783730809*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"10", ",", "5"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"8", ",", "15"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.5696097754501953`*^9, 3.569609784510495*^9}}]
+}, Open  ]]
+},
+WindowSize->{740, 818},
+WindowMargins->{{293, Automatic}, {22, Automatic}},
+FrontEndVersion->"8.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (November 6, \
+2010)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[557, 20, 2076, 49, 133, "Input"],
+Cell[CellGroupData[{
+Cell[2658, 73, 236, 7, 45, "Input"],
+Cell[2897, 82, 284, 8, 27, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3218, 95, 227, 4, 27, "Input"],
+Cell[3448, 101, 777, 20, 27, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4262, 126, 528, 12, 27, "Input"],
+Cell[4793, 140, 895, 29, 27, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5725, 174, 363, 10, 27, "Input"],
+Cell[6091, 186, 435, 11, 27, "Output"]
+}, Open  ]],
+Cell[6541, 200, 1141, 29, 88, "Input"],
+Cell[CellGroupData[{
+Cell[7707, 233, 187, 3, 27, "Input"],
+Cell[7897, 238, 755, 27, 27, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8689, 270, 333, 9, 27, "Input"],
+Cell[9025, 281, 532, 16, 27, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9594, 302, 189, 4, 27, "Input"],
+Cell[9786, 308, 241, 7, 27, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
