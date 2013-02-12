@@ -1,0 +1,79 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 8.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      2110,         69]
+NotebookOptionsPosition[      1854,         55]
+NotebookOutlinePosition[      2211,         71]
+CellTagsIndexPosition[      2168,         68]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"toVector", "=", 
+    RowBox[{
+     RowBox[{"{", "matrix", "}"}], "\[Function]", 
+     RowBox[{"(", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"collector", "=", 
+        RowBox[{"pathItem", "\[Function]", 
+         RowBox[{"(", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"element", "=", 
+            RowBox[{"matrix", "[", 
+             RowBox[{"[", 
+              RowBox[{
+               RowBox[{"pathItem", "[", 
+                RowBox[{"[", "1", "]"}], "]"}], ",", 
+               RowBox[{"pathItem", "[", 
+                RowBox[{"[", "2", "]"}], "]"}]}], "]"}], "]"}]}], ";", 
+           "\[IndentingNewLine]", "element"}], "\[IndentingNewLine]", 
+          ")"}]}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"Flatten", "[", 
+        RowBox[{
+         RowBox[{"Append", "[", 
+          RowBox[{
+           RowBox[{"{", "}"}], ",", 
+           RowBox[{"Map", "[", 
+            RowBox[{"collector", ",", "path"}], "]"}]}], "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"1", ",", "2"}], "}"}]}], "]"}]}], "\[IndentingNewLine]", 
+      ")"}]}]}], ";"}], "\[IndentingNewLine]"}]], "Input",
+ CellChangeTimes->{{3.56968781321089*^9, 3.5696878146945066`*^9}, {
+  3.569687851989505*^9, 3.569687885853319*^9}}]
+},
+WindowSize->{740, 867},
+WindowMargins->{{395, Automatic}, {65, Automatic}},
+FrontEndVersion->"8.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (November 6, \
+2010)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[557, 20, 1293, 33, 133, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)
+
