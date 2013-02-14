@@ -10,87 +10,188 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[      3854,        105]
-NotebookOptionsPosition[      3598,         91]
-NotebookOutlinePosition[      3955,        107]
-CellTagsIndexPosition[      3912,        104]
+NotebookDataLength[      8490,        211]
+NotebookOptionsPosition[      8083,        192]
+NotebookOutlinePosition[      8439,        208]
+CellTagsIndexPosition[      8396,        205]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
-Cell[BoxData[
+
+Cell[CellGroupData[{
+Cell[BoxData[{
  RowBox[{
-  RowBox[{"repeatCounterFunction", " ", "=", 
+  RowBox[{
+   RowBox[{"repeatCounterFunction", " ", "=", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "vector", ",", " ", "index", ",", "repeatList", ",", "valueList"}], 
+      "}"}], "\[Function]", 
+     RowBox[{"(", "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"index", "+", "1"}], "<=", 
+         RowBox[{"Length", "[", "vector", "]"}]}], ",", 
+        RowBox[{"(", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"nextIndex", "=", 
+           RowBox[{"index", "+", "1"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"nextElement", " ", "=", " ", 
+           RowBox[{"vector", "[", 
+            RowBox[{"[", "nextIndex", "]"}], "]"}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"element", "=", 
+           RowBox[{"vector", "[", 
+            RowBox[{"[", "index", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+          
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{"element", "==", " ", "nextElement"}], ",", 
+            RowBox[{"(", "\[IndentingNewLine]", 
+             RowBox[{
+              RowBox[{"lastElement", "=", 
+               RowBox[{"Last", "[", "repeatList", "]"}]}], ";", 
+              "\[IndentingNewLine]", 
+              RowBox[{"lastElement", "=", 
+               RowBox[{"lastElement", "+", "1"}]}], ";", 
+              "\[IndentingNewLine]", 
+              RowBox[{"newList", "=", 
+               RowBox[{"Take", "[", 
+                RowBox[{"repeatList", ",", 
+                 RowBox[{
+                  RowBox[{"Length", "[", "repeatList", "]"}], "-", "1"}]}], 
+                "]"}]}], ";", "\[IndentingNewLine]", 
+              RowBox[{"newList", "=", 
+               RowBox[{"Append", "[", 
+                RowBox[{"newList", ",", "lastElement"}], "]"}]}], ";", 
+              "\[IndentingNewLine]", 
+              RowBox[{"repeatCounterFunction", "[", 
+               RowBox[{
+               "vector", ",", "nextIndex", ",", "newList", ",", "valueList"}],
+                "]"}]}], "\[IndentingNewLine]", ")"}], ",", 
+            RowBox[{"(", "\[IndentingNewLine]", 
+             RowBox[{
+              RowBox[{"newList", "=", 
+               RowBox[{"Append", "[", 
+                RowBox[{"repeatList", ",", "1"}], "]"}]}], ";", 
+              "\[IndentingNewLine]", 
+              RowBox[{"newValueList", "=", 
+               RowBox[{"Append", "[", 
+                RowBox[{"valueList", ",", "nextElement"}], "]"}]}], ";", 
+              "\[IndentingNewLine]", 
+              RowBox[{"repeatCounterFunction", "[", 
+               RowBox[{
+               "vector", ",", "nextIndex", ",", "newList", ",", 
+                "newValueList"}], "]"}]}], "\[IndentingNewLine]", ")"}]}], 
+           "]"}]}], "\[IndentingNewLine]", ")"}], ",", "\[IndentingNewLine]", 
+        
+        RowBox[{"(", "\[IndentingNewLine]", 
+         RowBox[{"{", 
+          RowBox[{"repeatList", ",", "valueList"}], "}"}], 
+         "\[IndentingNewLine]", ")"}]}], "]"}], "\[IndentingNewLine]", 
+      ")"}]}]}], ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{"result", "=", 
+  RowBox[{"repeatCounterFunction", "[", 
    RowBox[{
     RowBox[{"{", 
-     RowBox[{
-     "vector", ",", " ", "index", ",", "repeatList", ",", "valueList"}], 
-     "}"}], "\[Function]", 
+     RowBox[{"1", ",", "2", ",", "3", ",", "3", ",", "4"}], "}"}], ",", "1", 
+    ",", 
+    RowBox[{"{", "1", "}"}], ",", 
+    RowBox[{"{", "1", "}"}]}], "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"Dimensions", "@", "result"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"reverseRepeatCounter", "=", 
+   RowBox[{
+    RowBox[{"{", "vector", "}"}], "\[Function]", 
     RowBox[{"(", "\[IndentingNewLine]", 
-     RowBox[{"If", "[", 
-      RowBox[{
-       RowBox[{
-        RowBox[{"index", "+", "1"}], "<=", 
-        RowBox[{"Length", "[", "vector", "]"}]}], ",", 
-       RowBox[{"(", "\[IndentingNewLine]", 
-        RowBox[{
-         RowBox[{"nextIndex", "=", 
-          RowBox[{"index", "+", "1"}]}], ";", "\[IndentingNewLine]", 
-         RowBox[{"nextElement", " ", "=", " ", 
-          RowBox[{"vector", "[", 
-           RowBox[{"[", "nextIndex", "]"}], "]"}]}], ";", 
-         "\[IndentingNewLine]", 
-         RowBox[{"element", "=", 
-          RowBox[{"vector", "[", 
-           RowBox[{"[", "index", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
-         RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{"pairs", "=", 
+       RowBox[{"Flatten", "[", 
+        RowBox[{"vector", ",", 
+         RowBox[{"{", 
           RowBox[{
-           RowBox[{"element", "==", " ", "nextElement"}], ",", 
-           RowBox[{"(", "\[IndentingNewLine]", 
-            RowBox[{
-             RowBox[{"lastElement", "=", 
-              RowBox[{"Last", "[", "repeatList", "]"}]}], ";", 
-             "\[IndentingNewLine]", 
-             RowBox[{"lastElement", "=", 
-              RowBox[{"lastElement", "+", "1"}]}], ";", "\[IndentingNewLine]", 
-             RowBox[{"newList", "=", 
-              RowBox[{"Take", "[", 
-               RowBox[{"repeatList", ",", 
-                RowBox[{
-                 RowBox[{"Length", "[", "repeatList", "]"}], "-", "1"}]}], 
-               "]"}]}], ";", "\[IndentingNewLine]", 
-             RowBox[{"newList", "=", 
-              RowBox[{"Append", "[", 
-               RowBox[{"newList", ",", "lastElement"}], "]"}]}], ";", 
-             "\[IndentingNewLine]", 
-             RowBox[{"repeatCounterFunction", "[", 
-              RowBox[{
-              "vector", ",", "nextIndex", ",", "newList", ",", "valueList"}], 
-              "]"}]}], "\[IndentingNewLine]", ")"}], ",", 
-           RowBox[{"(", "\[IndentingNewLine]", 
-            RowBox[{
-             RowBox[{"newList", "=", 
-              RowBox[{"Append", "[", 
-               RowBox[{"repeatList", ",", "1"}], "]"}]}], ";", 
-             "\[IndentingNewLine]", 
-             RowBox[{"newValueList", "=", 
-              RowBox[{"Append", "[", 
-               RowBox[{"valueList", ",", "nextElement"}], "]"}]}], ";", 
-             "\[IndentingNewLine]", 
-             RowBox[{"repeatCounterFunction", "[", 
-              RowBox[{
-              "vector", ",", "nextIndex", ",", "newList", ",", 
-               "newValueList"}], "]"}]}], "\[IndentingNewLine]", ")"}]}], 
-          "]"}]}], "\[IndentingNewLine]", ")"}], ",", "\[IndentingNewLine]", 
-       RowBox[{"(", "\[IndentingNewLine]", 
-        RowBox[{"{", 
-         RowBox[{"repeatList", ",", "valueList"}], "}"}], 
-        "\[IndentingNewLine]", ")"}]}], "]"}], "\[IndentingNewLine]", 
-     ")"}]}]}], ";"}]], "Input",
- CellChangeTimes->{{3.569687743519795*^9, 3.569687747471571*^9}}]
+           RowBox[{"{", "2", "}"}], ",", 
+           RowBox[{"{", "1", "}"}]}], "}"}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"createList", "=", 
+       RowBox[{
+        RowBox[{"{", "pair", "}"}], "\[Function]", 
+        RowBox[{"(", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"repeatCount", "=", 
+           RowBox[{"pair", "[", 
+            RowBox[{"[", "1", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"repeatValue", "=", 
+           RowBox[{"pair", "[", 
+            RowBox[{"[", "2", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"newList", "=", 
+           RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"For", "[", 
+           RowBox[{
+            RowBox[{"i", "=", "1"}], ",", 
+            RowBox[{"i", "<=", "repeatCount"}], ",", 
+            RowBox[{"i", "++"}], ",", 
+            RowBox[{"newList", "=", 
+             RowBox[{"Append", "[", 
+              RowBox[{"newList", ",", "repeatValue"}], "]"}]}]}], "]"}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"{", "newList", "}"}]}], "\[IndentingNewLine]", ")"}]}]}], 
+      ";", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"Map", "[", 
+        RowBox[{"createList", ",", "pairs"}], "]"}], "//", "Flatten"}]}], 
+     "\[IndentingNewLine]", ")"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"reverseRepeatCounter", "[", "result", 
+  "]"}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.569687743519795*^9, 3.569687747471571*^9}, {
+  3.5698552155349216`*^9, 3.56985536410758*^9}, {3.569855398218525*^9, 
+  3.569855482225829*^9}, {3.569855520924809*^9, 3.569855578976611*^9}, {
+  3.569855792646967*^9, 3.5698557939383297`*^9}, {3.569855825639344*^9, 
+  3.569855858471583*^9}, {3.569855894443972*^9, 3.5698560231569443`*^9}, {
+  3.5698560553537197`*^9, 3.5698560952189007`*^9}, {3.569856136360878*^9, 
+  3.56985616538251*^9}, {3.5698562124144573`*^9, 3.569856416219659*^9}, {
+  3.569856475642755*^9, 3.569856558780842*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"1", ",", "1", ",", "2", ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "2", ",", "3", ",", "4"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.569855264589911*^9, 3.569855317170285*^9}, 
+   3.569855483534326*^9, 3.5698555248785133`*^9, {3.569855569506536*^9, 
+   3.5698555794459143`*^9}, 3.5698557957568808`*^9, {3.569855828464645*^9, 
+   3.569855858788735*^9}, {3.56985589619864*^9, 3.569855904084049*^9}, {
+   3.5698560863679943`*^9, 3.569856095973263*^9}, {3.569856373246274*^9, 
+   3.569856416762226*^9}, {3.569856519004293*^9, 3.569856559080154*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"2", ",", "4"}], "}"}]], "Output",
+ CellChangeTimes->{{3.569855264589911*^9, 3.569855317170285*^9}, 
+   3.569855483534326*^9, 3.5698555248785133`*^9, {3.569855569506536*^9, 
+   3.5698555794459143`*^9}, 3.5698557957568808`*^9, {3.569855828464645*^9, 
+   3.569855858788735*^9}, {3.56985589619864*^9, 3.569855904084049*^9}, {
+   3.5698560863679943`*^9, 3.569856095973263*^9}, {3.569856373246274*^9, 
+   3.569856416762226*^9}, {3.569856519004293*^9, 3.569856559082054*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"1", ",", "2", ",", "3", ",", "3", ",", "4"}], "}"}]], "Output",
+ CellChangeTimes->{{3.569855264589911*^9, 3.569855317170285*^9}, 
+   3.569855483534326*^9, 3.5698555248785133`*^9, {3.569855569506536*^9, 
+   3.5698555794459143`*^9}, 3.5698557957568808`*^9, {3.569855828464645*^9, 
+   3.569855858788735*^9}, {3.56985589619864*^9, 3.569855904084049*^9}, {
+   3.5698560863679943`*^9, 3.569856095973263*^9}, {3.569856373246274*^9, 
+   3.569856416762226*^9}, {3.569856519004293*^9, 3.569856559083294*^9}}]
+}, Open  ]]
 },
-WindowSize->{740, 867},
-WindowMargins->{{513, Automatic}, {Automatic, 55}},
+WindowSize->{740, 856},
+WindowMargins->{{127, Automatic}, {Automatic, 0}},
 FrontEndVersion->"8.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (November 6, \
 2010)",
 StyleDefinitions->"Default.nb"
@@ -106,10 +207,14 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[557, 20, 3037, 69, 328, "Input"]
+Cell[CellGroupData[{
+Cell[579, 22, 5787, 133, 568, "Input"],
+Cell[6369, 157, 646, 12, 27, "Output"],
+Cell[7018, 171, 508, 8, 27, "Output"],
+Cell[7529, 181, 538, 8, 27, "Output"]
+}, Open  ]]
 }
 ]
 *)
 
 (* End of internal cache information *)
-
