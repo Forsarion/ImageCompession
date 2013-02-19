@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[      2110,         69]
-NotebookOptionsPosition[      1854,         55]
-NotebookOutlinePosition[      2211,         71]
-CellTagsIndexPosition[      2168,         68]
+NotebookDataLength[      2209,         71]
+NotebookOptionsPosition[      1953,         57]
+NotebookOutlinePosition[      2310,         73]
+CellTagsIndexPosition[      2267,         70]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -49,12 +49,14 @@ Cell[BoxData[
             RowBox[{"collector", ",", "path"}], "]"}]}], "]"}], ",", 
          RowBox[{"{", 
           RowBox[{"1", ",", "2"}], "}"}]}], "]"}]}], "\[IndentingNewLine]", 
-      ")"}]}]}], ";"}], "\[IndentingNewLine]"}]], "Input",
+      ")"}]}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  "\[IndentingNewLine]"}]], "Input",
  CellChangeTimes->{{3.56968781321089*^9, 3.5696878146945066`*^9}, {
-  3.569687851989505*^9, 3.569687885853319*^9}}]
+  3.569687851989505*^9, 3.569687885853319*^9}, {3.56985794329692*^9, 
+  3.5698579445996103`*^9}}]
 },
-WindowSize->{740, 867},
-WindowMargins->{{395, Automatic}, {65, Automatic}},
+WindowSize->{740, 856},
+WindowMargins->{{Automatic, 317}, {Automatic, 82}},
 FrontEndVersion->"8.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (November 6, \
 2010)",
 StyleDefinitions->"Default.nb"
@@ -70,10 +72,9 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[557, 20, 1293, 33, 133, "Input"]
+Cell[557, 20, 1392, 35, 163, "Input"]
 }
 ]
 *)
 
 (* End of internal cache information *)
-
