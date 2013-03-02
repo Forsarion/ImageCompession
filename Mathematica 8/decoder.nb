@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[     64016,       1246]
-NotebookOptionsPosition[     63638,       1228]
-NotebookOutlinePosition[     63993,       1244]
-CellTagsIndexPosition[     63950,       1241]
+NotebookDataLength[     63963,       1260]
+NotebookOptionsPosition[     63511,       1239]
+NotebookOutlinePosition[     63866,       1255]
+CellTagsIndexPosition[     63823,       1252]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -481,8 +481,9 @@ Cell[BoxData[
        RowBox[{"imageSize", "[", 
         RowBox[{"[", "2", "]"}], "]"}]}], "]"}]}], ";"}], 
    "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{"Image", "[", 
-    RowBox[{"restoredImage", ",", " ", "\"\<Byte\>\""}], "]"}], 
+   RowBox[{"restoredImage", "=", 
+    RowBox[{"Image", "[", 
+     RowBox[{"restoredImage", ",", " ", "\"\<Byte\>\""}], "]"}]}], 
    "\[IndentingNewLine]", "\[IndentingNewLine]"}]}]], "Input",
  CellChangeTimes->{{3.567260817126914*^9, 3.5672610742898483`*^9}, {
    3.567261245632237*^9, 3.567261250300989*^9}, {3.567261291264564*^9, 
@@ -527,7 +528,8 @@ Cell[BoxData[
    3.569939493172854*^9, 3.569939543574533*^9}, 3.569939652077532*^9, {
    3.571238427285727*^9, 3.571238432056651*^9}, {3.571239353969207*^9, 
    3.571239359167642*^9}, {3.57123940627774*^9, 3.571239489994529*^9}, {
-   3.5712396479356127`*^9, 3.5712396609091797`*^9}}],
+   3.5712396479356127`*^9, 3.5712396609091797`*^9}, {3.571240089249152*^9, 
+   3.571240118753542*^9}}],
 
 Cell[BoxData[
  GraphicsBox[
@@ -1111,23 +1113,10 @@ uoaNEbqGjL3xZpAMbf30b3wicoFeISQqikiGN02U4f8ApzeDPQ==
   BaseStyle->"ImageGraphics",
   ImageSizeRaw->{100, 100},
   PlotRange->{{0, 100}, {0, 100}}]], "Output",
- CellChangeTimes->{
-  3.567667164833819*^9, 3.567667285627728*^9, {3.5676673497343946`*^9, 
-   3.567667371609646*^9}, {3.5677878781499224`*^9, 3.5677879726953297`*^9}, {
-   3.56778830208417*^9, 3.5677883688109865`*^9}, {3.567788569812483*^9, 
-   3.5677885864144325`*^9}, 3.567788674500471*^9, {3.567788970085377*^9, 
-   3.5677889738085904`*^9}, {3.5677890065874653`*^9, 
-   3.5677890290187483`*^9}, {3.567789123427148*^9, 3.5677891454664087`*^9}, {
-   3.5677891945452156`*^9, 3.5677892245099297`*^9}, 3.567789283051278*^9, 
-   3.5677893434117303`*^9, {3.5677893886683187`*^9, 3.5677894156128597`*^9}, {
-   3.5677894909621696`*^9, 3.5677895875656953`*^9}, {3.567789642353829*^9, 
-   3.5677896511603327`*^9}, 3.56818526076123*^9, 3.568185427331439*^9, 
-   3.568185482916877*^9, 3.568185537050456*^9, 3.568186071223366*^9, 
-   3.5681861430644693`*^9, 3.568187922072714*^9, {3.569939640386942*^9, 
-   3.569939655286364*^9}, 3.57000082125532*^9, {3.5712383723655167`*^9, 
-   3.571238389925778*^9}, 3.5712384474602757`*^9, 3.571239498420609*^9, 
-   3.571239663886298*^9}]
+ CellChangeTimes->{3.57124012149736*^9}]
 }, Open  ]],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[{
  RowBox[{
@@ -1224,7 +1213,29 @@ Cell[BoxData[{
                RowBox[{"Length", "[", "#1", "]"}]]],
              TraditionalForm], ")"}], "&"}], " ", ",", "result", ",", " ", 
           RowBox[{"{", "1", "}"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
-       "result"}], "\[IndentingNewLine]", ")"}]}], "]"}]}], ";"}]}], "Input"]
+       "result"}], "\[IndentingNewLine]", ")"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+  "path", "=", 
+   "\"\</Users/andrey_moskvin/ImageCompression/Mathematica 8/image.jpg\>\""}],
+   ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"image", " ", "=", " ", 
+   RowBox[{"Import", "[", "path", "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"\[Delta]", " ", "=", " ", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"sko", "[", 
+     RowBox[{"image", ",", "restoredImage"}], "]"}], " ", "//", " ", "Mean"}],
+    " ", "//", " ", "N"}]}]}], "Input",
+ CellChangeTimes->{{3.571239896356598*^9, 3.5712399192572613`*^9}, {
+  3.571239956834692*^9, 3.571239958289962*^9}, {3.571240034824197*^9, 
+  3.571240082533307*^9}, {3.571240132585929*^9, 3.571240140717227*^9}}],
+
+Cell[BoxData["0.`"], "Output",
+ CellChangeTimes->{3.571240141405349*^9}]
+}, Open  ]]
 },
 WindowSize->{722, 856},
 WindowMargins->{{Automatic, 10}, {Automatic, 0}},
@@ -1244,10 +1255,13 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[579, 22, 23121, 507, 2096, "Input"],
-Cell[23703, 531, 36233, 597, 115, "Output"]
+Cell[579, 22, 23209, 509, 2096, "Input"],
+Cell[23791, 533, 35208, 582, 115, "Output"]
 }, Open  ]],
-Cell[59951, 1131, 3683, 95, 370, "Input"]
+Cell[CellGroupData[{
+Cell[59036, 1120, 4384, 113, 420, "Input"],
+Cell[63423, 1235, 72, 1, 27, "Output"]
+}, Open  ]]
 }
 ]
 *)
