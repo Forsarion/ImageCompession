@@ -1,0 +1,101 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 8.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      2853,         92]
+NotebookOptionsPosition[      2599,         78]
+NotebookOutlinePosition[      2954,         94]
+CellTagsIndexPosition[      2911,         91]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Quant", " ", "=", " ", 
+   RowBox[{"(", GridBox[{
+      {"3", "5", "7", "9", "11", "13", "15", "17"},
+      {"5", "7", "9", "11", "13", "15", "17", "19"},
+      {"7", "9", "11", "13", "15", "17", "19", "21"},
+      {"9", "11", "13", "15", "17", "19", "21", "23"},
+      {"11", "13", "15", "17", "19", "21", "23", "25"},
+      {"13", "15", "17", "19", "21", "23", "25", "27"},
+      {"15", "17", "19", "21", "23", "25", "27", "29"},
+      {"17", "19", "21", "23", "25", "27", "29", "31"}
+     }], ")"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"quantize", "[", "t_", "]"}], " ", ":=", " ", 
+   RowBox[{"Map", " ", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"#", "[", 
+        RowBox[{"[", "1", "]"}], "]"}], " ", "/", " ", 
+       RowBox[{"#", "[", 
+        RowBox[{"[", "2", "]"}], "]"}]}], " ", "&"}], ",", " ", 
+     RowBox[{"Flatten", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"t", ",", "Quant"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", "2", "}"}], ",", 
+         RowBox[{"{", "3", "}"}], ",", 
+         RowBox[{"{", "1", "}"}]}], "}"}]}], "]"}], ",", 
+     RowBox[{"{", "2", "}"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"dequantize", "[", "t_", "]"}], " ", ":=", " ", 
+   RowBox[{"Map", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"#", "[", 
+        RowBox[{"[", "1", "]"}], "]"}], " ", "*", " ", 
+       RowBox[{"#", "[", 
+        RowBox[{"[", "2", "]"}], "]"}]}], " ", "&"}], ",", " ", 
+     RowBox[{"Flatten", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"t", ",", "Quant"}], "}"}], ",", " ", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", "2", "}"}], ",", " ", 
+         RowBox[{"{", "3", "}"}], ",", " ", 
+         RowBox[{"{", "1", "}"}]}], "}"}]}], "]"}], ",", " ", 
+     RowBox[{"{", "2", "}"}]}], "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{
+  3.57123873868578*^9, {3.571238773760704*^9, 3.57123879269652*^9}}]
+},
+WindowSize->{740, 756},
+WindowMargins->{{Automatic, 97}, {Automatic, 0}},
+FrontEndVersion->"8.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (November 6, \
+2010)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[557, 20, 2038, 56, 182, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)

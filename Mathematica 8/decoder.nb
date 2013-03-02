@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[     58522,       1107]
-NotebookOptionsPosition[     58187,       1090]
-NotebookOutlinePosition[     58542,       1106]
-CellTagsIndexPosition[     58499,       1103]
+NotebookDataLength[     64016,       1246]
+NotebookOptionsPosition[     63638,       1228]
+NotebookOutlinePosition[     63993,       1244]
+CellTagsIndexPosition[     63950,       1241]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -45,6 +45,40 @@ Cell[BoxData[
     RowBox[{"compressedVector", " ", "=", " ", 
      RowBox[{"data", "[", 
       RowBox[{"[", "2", "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Quant", " ", "=", " ", 
+     RowBox[{"(", GridBox[{
+        {"3", "5", "7", "9", "11", "13", "15", "17"},
+        {"5", "7", "9", "11", "13", "15", "17", "19"},
+        {"7", "9", "11", "13", "15", "17", "19", "21"},
+        {"9", "11", "13", "15", "17", "19", "21", "23"},
+        {"11", "13", "15", "17", "19", "21", "23", "25"},
+        {"13", "15", "17", "19", "21", "23", "25", "27"},
+        {"15", "17", "19", "21", "23", "25", "27", "29"},
+        {"17", "19", "21", "23", "25", "27", "29", "31"}
+       }], ")"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"dequantize", "[", "t_", "]"}], " ", ":=", " ", 
+     RowBox[{"Map", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{"#", "[", 
+          RowBox[{"[", "1", "]"}], "]"}], " ", "*", " ", 
+         RowBox[{"#", "[", 
+          RowBox[{"[", "2", "]"}], "]"}]}], " ", "&"}], ",", " ", 
+       RowBox[{"Flatten", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"t", ",", "Quant"}], "}"}], ",", " ", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", "2", "}"}], ",", " ", 
+           RowBox[{"{", "3", "}"}], ",", " ", 
+           RowBox[{"{", "1", "}"}]}], "}"}]}], "]"}], ",", " ", 
+       RowBox[{"{", "2", "}"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
    "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"pathFinder", "=", 
@@ -317,6 +351,9 @@ Cell[BoxData[
       RowBox[{"{", "vector", "}"}], "\[Function]", 
       RowBox[{"(", "\[IndentingNewLine]", 
        RowBox[{
+        RowBox[{"path", "=", 
+         RowBox[{"pathFinder", "[", "8", "]"}]}], ";", "\[IndentingNewLine]", 
+        
         RowBox[{"emptyList", "=", 
          RowBox[{"PadRight", "[", 
           RowBox[{
@@ -344,9 +381,7 @@ Cell[BoxData[
                 RowBox[{"[", "index", "]"}], "]"}]}]}], "]"}]}], 
            "\[IndentingNewLine]", ")"}]}]}], ";", "\[IndentingNewLine]", 
         RowBox[{"MapIndexed", "[", 
-         RowBox[{"inserter", ",", 
-          RowBox[{"pathFinder", "[", "8", "]"}]}], "]"}], ";", 
-        "\[IndentingNewLine]", 
+         RowBox[{"inserter", ",", "path"}], "]"}], ";", "\[IndentingNewLine]", 
         RowBox[{"Flatten", "[", 
          RowBox[{"emptyList", ",", 
           RowBox[{"{", 
@@ -373,6 +408,9 @@ Cell[BoxData[
         RowBox[{"roundedMatrix", "=", 
          RowBox[{"toMatrix", "[", "roundedVector", "]"}]}], ";", 
         "\[IndentingNewLine]", 
+        RowBox[{"dequantizedMatrix", "=", 
+         RowBox[{"dequantize", "[", "roundedMatrix", "]"}]}], ";", 
+        "\[IndentingNewLine]", 
         RowBox[{"signedJoiner", "=", 
          RowBox[{
           RowBox[{"{", 
@@ -393,7 +431,7 @@ Cell[BoxData[
            "\[IndentingNewLine]", ")"}]}]}], ";", "\[IndentingNewLine]", 
         RowBox[{"result", "=", 
          RowBox[{"MapIndexed", "[", 
-          RowBox[{"signedJoiner", ",", "roundedMatrix", ",", 
+          RowBox[{"signedJoiner", ",", "dequantizedMatrix", ",", 
            RowBox[{"{", "2", "}"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
         RowBox[{"result", " ", "=", " ", 
          RowBox[{"FourierDCT", "[", 
@@ -487,7 +525,9 @@ Cell[BoxData[
    3.5681860615871277`*^9}, {3.5699392711688137`*^9, 
    3.5699393225824957`*^9}, {3.569939356140547*^9, 3.56993945186067*^9}, {
    3.569939493172854*^9, 3.569939543574533*^9}, 3.569939652077532*^9, {
-   3.571238427285727*^9, 3.571238432056651*^9}}],
+   3.571238427285727*^9, 3.571238432056651*^9}, {3.571239353969207*^9, 
+   3.571239359167642*^9}, {3.57123940627774*^9, 3.571239489994529*^9}, {
+   3.5712396479356127`*^9, 3.5712396609091797`*^9}}],
 
 Cell[BoxData[
  GraphicsBox[
@@ -1085,8 +1125,106 @@ uoaNEbqGjL3xZpAMbf30b3wicoFeISQqikiGN02U4f8ApzeDPQ==
    3.568185482916877*^9, 3.568185537050456*^9, 3.568186071223366*^9, 
    3.5681861430644693`*^9, 3.568187922072714*^9, {3.569939640386942*^9, 
    3.569939655286364*^9}, 3.57000082125532*^9, {3.5712383723655167`*^9, 
-   3.571238389925778*^9}, 3.5712384474602757`*^9}]
-}, Open  ]]
+   3.571238389925778*^9}, 3.5712384474602757`*^9, 3.571239498420609*^9, 
+   3.571239663886298*^9}]
+}, Open  ]],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"getRGB", "[", "imageData_", "]"}], " ", ":=", " ", 
+   RowBox[{"Flatten", "[", 
+    RowBox[{"imageData", ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", "3", "}"}], ",", " ", 
+       RowBox[{"{", "1", "}"}], ",", " ", 
+       RowBox[{"{", "2", "}"}]}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"getImageData", "[", "image_", "]"}], " ", ":=", " ", 
+   RowBox[{"ImageData", "[", 
+    RowBox[{"image", ",", "\"\<Byte\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"sko", "[", 
+    RowBox[{"image_", ",", "retoredImage_"}], "]"}], " ", ":=", " ", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "data", ",", " ", "restoredData", ",", " ", "result", ",", "f"}], "}"}],
+      ",", " ", 
+     RowBox[{"(", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"data", " ", "=", " ", 
+        RowBox[{
+         RowBox[{"getImageData", "[", "image", "]"}], " ", "//", " ", 
+         "getRGB"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"restoredData", " ", "=", " ", 
+        RowBox[{
+         RowBox[{"getImageData", "[", "restoredImage", "]"}], " ", "//", " ", 
+         "getRGB"}]}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{"result", " ", "=", " ", 
+        RowBox[{"{", 
+         RowBox[{"data", ",", " ", "restoredData"}], "}"}]}], ";", " ", 
+       RowBox[{"(*", 
+        RowBox[{
+        "Images", " ", "x", " ", "Colors", " ", "x", " ", "Pixels", " ", "x", 
+         " ", "Pixels"}], "*)"}], "\[IndentingNewLine]", 
+       RowBox[{"result", " ", "=", " ", 
+        RowBox[{"Flatten", "[", 
+         RowBox[{"result", ",", " ", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", "2", "}"}], ",", 
+            RowBox[{"{", "1", "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"3", ",", "4"}], "}"}]}], "}"}]}], "]"}]}], ";", " ", 
+       RowBox[{"(*", 
+        RowBox[{"Color", " ", "x", " ", "Images", " ", "x", " ", "Pixels"}], 
+        "*)"}], "\[IndentingNewLine]", 
+       RowBox[{"result", " ", "=", " ", 
+        RowBox[{"Flatten", "[", 
+         RowBox[{"result", ",", " ", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", "1", "}"}], ",", 
+            RowBox[{"{", "3", "}"}], ",", 
+            RowBox[{"{", "2", "}"}]}], "}"}]}], "]"}]}], ";", " ", 
+       RowBox[{"(*", 
+        RowBox[{"Color", " ", "x", " ", "Pixel", " ", "x", " ", "Images"}], 
+        "*)"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"f", "[", 
+         RowBox[{"{", 
+          RowBox[{"o_", ",", " ", "r_"}], "}"}], "]"}], " ", ":=", " ", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"o", "-", "r"}], ")"}], "^", "2"}]}], ";", " ", 
+       "\[IndentingNewLine]", 
+       RowBox[{"result", " ", "=", " ", 
+        RowBox[{"Map", "[", 
+         RowBox[{"f", ",", "result", ",", 
+          RowBox[{"{", "2", "}"}]}], "]"}]}], ";", " ", 
+       RowBox[{"(*", 
+        RowBox[{"Color", " ", "x", " ", "Pixel", " ", "diff"}], " ", "*)"}], 
+       "\[IndentingNewLine]", 
+       RowBox[{"result", " ", "=", " ", 
+        RowBox[{"Map", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"(", 
+            FormBox[
+             SqrtBox[
+              FractionBox[
+               RowBox[{"Plus", "@@", "#1"}], 
+               RowBox[{"Length", "[", "#1", "]"}]]],
+             TraditionalForm], ")"}], "&"}], " ", ",", "result", ",", " ", 
+          RowBox[{"{", "1", "}"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+       "result"}], "\[IndentingNewLine]", ")"}]}], "]"}]}], ";"}]}], "Input"]
 },
 WindowSize->{722, 856},
 WindowMargins->{{Automatic, 10}, {Automatic, 0}},
@@ -1106,9 +1244,10 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[579, 22, 21404, 467, 1888, "Input"],
-Cell[21986, 491, 36185, 596, 115, "Output"]
-}, Open  ]]
+Cell[579, 22, 23121, 507, 2096, "Input"],
+Cell[23703, 531, 36233, 597, 115, "Output"]
+}, Open  ]],
+Cell[59951, 1131, 3683, 95, 370, "Input"]
 }
 ]
 *)
