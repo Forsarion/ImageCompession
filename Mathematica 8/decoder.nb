@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[     58461,       1106]
-NotebookOptionsPosition[     58125,       1089]
-NotebookOutlinePosition[     58481,       1105]
-CellTagsIndexPosition[     58438,       1102]
+NotebookDataLength[     58522,       1107]
+NotebookOptionsPosition[     58187,       1090]
+NotebookOutlinePosition[     58542,       1106]
+CellTagsIndexPosition[     58499,       1103]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -312,9 +312,6 @@ Cell[BoxData[
        "\[IndentingNewLine]", ")"}]}]}], ";"}], "\[IndentingNewLine]", 
    "\[IndentingNewLine]", 
    RowBox[{
-    RowBox[{"path", "=", 
-     RowBox[{"pathFinder", "[", "8", "]"}]}], ";"}], "\[IndentingNewLine]", 
-   RowBox[{
     RowBox[{"toMatrix", "=", 
      RowBox[{
       RowBox[{"{", "vector", "}"}], "\[Function]", 
@@ -347,7 +344,9 @@ Cell[BoxData[
                 RowBox[{"[", "index", "]"}], "]"}]}]}], "]"}]}], 
            "\[IndentingNewLine]", ")"}]}]}], ";", "\[IndentingNewLine]", 
         RowBox[{"MapIndexed", "[", 
-         RowBox[{"inserter", ",", "path"}], "]"}], ";", "\[IndentingNewLine]", 
+         RowBox[{"inserter", ",", 
+          RowBox[{"pathFinder", "[", "8", "]"}]}], "]"}], ";", 
+        "\[IndentingNewLine]", 
         RowBox[{"Flatten", "[", 
          RowBox[{"emptyList", ",", 
           RowBox[{"{", 
@@ -487,7 +486,8 @@ Cell[BoxData[
    3.568185924024766*^9, 3.568185928292468*^9}, {3.568186047888033*^9, 
    3.5681860615871277`*^9}, {3.5699392711688137`*^9, 
    3.5699393225824957`*^9}, {3.569939356140547*^9, 3.56993945186067*^9}, {
-   3.569939493172854*^9, 3.569939543574533*^9}, 3.569939652077532*^9}],
+   3.569939493172854*^9, 3.569939543574533*^9}, 3.569939652077532*^9, {
+   3.571238427285727*^9, 3.571238432056651*^9}}],
 
 Cell[BoxData[
  GraphicsBox[
@@ -1084,11 +1084,12 @@ uoaNEbqGjL3xZpAMbf30b3wicoFeISQqikiGN02U4f8ApzeDPQ==
    3.5677896511603327`*^9}, 3.56818526076123*^9, 3.568185427331439*^9, 
    3.568185482916877*^9, 3.568185537050456*^9, 3.568186071223366*^9, 
    3.5681861430644693`*^9, 3.568187922072714*^9, {3.569939640386942*^9, 
-   3.569939655286364*^9}, 3.57000082125532*^9}]
+   3.569939655286364*^9}, 3.57000082125532*^9, {3.5712383723655167`*^9, 
+   3.571238389925778*^9}, 3.5712384474602757`*^9}]
 }, Open  ]]
 },
 WindowSize->{722, 856},
-WindowMargins->{{517, Automatic}, {Automatic, 0}},
+WindowMargins->{{Automatic, 10}, {Automatic, 0}},
 FrontEndVersion->"8.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (November 6, \
 2010)",
 StyleDefinitions->"Default.nb"
@@ -1105,8 +1106,8 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[579, 22, 21418, 467, 1903, "Input"],
-Cell[22000, 491, 36109, 595, 115, "Output"]
+Cell[579, 22, 21404, 467, 1888, "Input"],
+Cell[21986, 491, 36185, 596, 115, "Output"]
 }, Open  ]]
 }
 ]
