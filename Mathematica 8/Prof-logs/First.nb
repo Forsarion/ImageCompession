@@ -1,0 +1,2015 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 8.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     65431,       2005]
+NotebookOptionsPosition[     65173,       1991]
+NotebookOutlinePosition[     65529,       2007]
+CellTagsIndexPosition[     65486,       2004]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[GridBox[{
+   {"Calls", "Time", "Evaluation"},
+   {"1", "8.834408999999994`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{
+       RowBox[{"c", "=", 
+        RowBox[{"compress", "[", "image", "]"}]}], ";"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[3809]]& )]},
+   {"1", "8.834394000000003`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"c", "=", 
+       RowBox[{"compress", "[", "image", "]"}]}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[3825]]& )]},
+   {"1", "8.833177000000006`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"compress", "[", "image", "]"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[3841]]& )]},
+   {"1", "8.83316400000001`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"compress", "[", "image_", "]"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[11777]]& )]},
+   {"1", "8.833145000000002`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"Module", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"result", "=", "image"}], ",", 
+          RowBox[{"dimensions", "=", 
+           RowBox[{"ImageDimensions", "[", "image", "]"}]}]}], "}"}], ",", 
+        RowBox[{
+         RowBox[{"result", "=", 
+          RowBox[{"getImageData", "[", "result", "]"}]}], ";", 
+         RowBox[{"result", "=", 
+          RowBox[{"getRGB", "[", "result", "]"}]}], ";", 
+         RowBox[{"result", "=", 
+          RowBox[{"getTransformants", "/@", "result"}]}], ";", 
+         RowBox[{"result", "=", 
+          RowBox[{"Map", "[", 
+           RowBox[{"compressTransformant", ",", "result", ",", 
+            RowBox[{"{", 
+             RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], "}"}]}], 
+           "]"}]}], ";", 
+         RowBox[{"{", 
+          RowBox[{"dimensions", ",", "result"}], "}"}]}]}], "]"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[11793]]& )]},
+   {"1", "8.830613`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{
+       RowBox[{"result", "=", 
+        RowBox[{"getImageData", "[", "result", "]"}]}], ";", 
+       RowBox[{"result", "=", 
+        RowBox[{"getRGB", "[", "result", "]"}]}], ";", 
+       RowBox[{"result", "=", 
+        RowBox[{"getTransformants", "/@", "result"}]}], ";", 
+       RowBox[{"result", "=", 
+        RowBox[{"Map", "[", 
+         RowBox[{"compressTransformant", ",", "result", ",", 
+          RowBox[{"{", "3", "}"}]}], "]"}]}], ";", 
+       RowBox[{"{", 
+        RowBox[{"dimensions", ",", "result"}], "}"}]}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[11905]]& )]},
+   {"1", "8.828028000000018`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"result", "=", 
+       RowBox[{"Map", "[", 
+        RowBox[{"compressTransformant", ",", "result", ",", 
+         RowBox[{"{", "3", "}"}]}], "]"}]}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[12033]]& )]},
+   {"1", "8.827685000000002`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"Map", "[", 
+       RowBox[{"compressTransformant", ",", "result", ",", 
+        RowBox[{"{", "3", "}"}]}], "]"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[12049]]& )]},
+   {"507", "8.82571299999941`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"compressTransformant", "[", "t_", "]"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[18129]]& )]},
+   {"507", "8.822022999999206`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"Module", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"result", "=", "t"}], ",", "signsMatrix"}], "}"}], ",", 
+        RowBox[{
+         RowBox[{"result", "=", 
+          RowBox[{"normalize", "[", "result", "]"}]}], ";", 
+         RowBox[{"result", "=", 
+          RowBox[{"restructure", "[", "result", "]"}]}], ";", 
+         RowBox[{"result", "=", 
+          RowBox[{"quantize", "[", "result", "]"}]}], ";", 
+         RowBox[{"signsMatrix", "=", 
+          RowBox[{"signs", "[", "result", "]"}]}], ";", 
+         RowBox[{"result", "=", 
+          RowBox[{"rounded", "[", "result", "]"}]}], ";", 
+         RowBox[{"result", "=", 
+          RowBox[{"bitcube", "[", "result", "]"}]}], ";", 
+         RowBox[{"\[LeftSkeleton]", "2", "\[RightSkeleton]"}]}]}], "]"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[20177]]& )]},
+   {"507", "8.795582000000167`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{
+       RowBox[{"result", "=", 
+        RowBox[{"normalize", "[", "result", "]"}]}], ";", 
+       RowBox[{"result", "=", 
+        RowBox[{"restructure", "[", "result", "]"}]}], ";", 
+       RowBox[{"result", "=", 
+        RowBox[{"quantize", "[", "result", "]"}]}], ";", 
+       RowBox[{"signsMatrix", "=", 
+        RowBox[{"signs", "[", "result", "]"}]}], ";", 
+       RowBox[{"result", "=", 
+        RowBox[{"rounded", "[", "result", "]"}]}], ";", 
+       RowBox[{"result", "=", 
+        RowBox[{"bitcube", "[", "result", "]"}]}], ";", 
+       RowBox[{"\[LeftSkeleton]", "2", "\[RightSkeleton]"}]}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[20209]]& )]},
+   {"507", "4.5354659999999`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"result", "=", 
+       RowBox[{"compressBits", "/@", "result"}]}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[20321]]& )]},
+   {"507", "4.533546999999345`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"compressBits", "/@", "result"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[18497]]& )]},
+   {"4677", "4.516696999999709`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"compressBits", "[", "bits_", "]"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[9713]]& )]},
+   {"4677", "4.484176999999448`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"Module", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"f", ",", "result"}], "}"}], ",", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"f", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"\[LeftSkeleton]", "3", "\[RightSkeleton]"}], "}"}], ",", 
+            RowBox[{"Pattern", "[", 
+             RowBox[{"\[LeftSkeleton]", "2", "\[RightSkeleton]"}], "]"}]}], 
+           "]"}], ":=", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"\[LeftSkeleton]", "3", "\[RightSkeleton]"}], "}"}], "/;", 
+           RowBox[{"Equal", "[", 
+            RowBox[{"\[LeftSkeleton]", "2", "\[RightSkeleton]"}], "]"}]}]}], 
+         ";", 
+         RowBox[{
+          RowBox[{"f", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"\[LeftSkeleton]", "3", "\[RightSkeleton]"}], "}"}], ",", 
+            RowBox[{"Pattern", "[", 
+             RowBox[{"\[LeftSkeleton]", "2", "\[RightSkeleton]"}], "]"}]}], 
+           "]"}], ":=", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"\[LeftSkeleton]", "3", "\[RightSkeleton]"}], "}"}], "/;", 
+           RowBox[{"Unequal", "[", 
+            RowBox[{"\[LeftSkeleton]", "2", "\[RightSkeleton]"}], "]"}]}]}], 
+         ";", 
+         RowBox[{"result", "=", 
+          RowBox[{"Fold", "[", 
+           RowBox[{"f", ",", 
+            RowBox[{"{", 
+             RowBox[{"\[LeftSkeleton]", "3", "\[RightSkeleton]"}], "}"}], ",",
+             "bits"}], "]"}]}], ";", 
+         RowBox[{"result", "=", 
+          RowBox[{"Append", "[", 
+           RowBox[{
+            RowBox[{"Part", "[", 
+             RowBox[{"\[LeftSkeleton]", "2", "\[RightSkeleton]"}], "]"}], ",", 
+            RowBox[{"Part", "[", 
+             RowBox[{"\[LeftSkeleton]", "2", "\[RightSkeleton]"}], "]"}]}], 
+           "]"}]}], ";", "result"}]}], "]"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[9729]]& )]},
+   {"4677", "4.249839000000549`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{
+       RowBox[{
+        RowBox[{"f", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Pattern", "[", 
+             RowBox[{"\[LeftSkeleton]", "2", "\[RightSkeleton]"}], "]"}], ",", 
+            RowBox[{"Pattern", "[", 
+             RowBox[{"\[LeftSkeleton]", "2", "\[RightSkeleton]"}], "]"}], ",", 
+            RowBox[{"Pattern", "[", 
+             RowBox[{"\[LeftSkeleton]", "2", "\[RightSkeleton]"}], "]"}]}], 
+           "}"}], ",", "ce_"}], "]"}], ":=", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"fs", ",", 
+           RowBox[{"Plus", "[", 
+            RowBox[{"\[LeftSkeleton]", "2", "\[RightSkeleton]"}], "]"}], ",", 
+           "ce"}], "}"}], "/;", 
+         RowBox[{"ce", "\[Equal]", "pe"}]}]}], ";", 
+       RowBox[{
+        RowBox[{"f", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Pattern", "[", 
+             RowBox[{"\[LeftSkeleton]", "2", "\[RightSkeleton]"}], "]"}], ",", 
+            RowBox[{"Pattern", "[", 
+             RowBox[{"\[LeftSkeleton]", "2", "\[RightSkeleton]"}], "]"}], ",", 
+            RowBox[{"Pattern", "[", 
+             RowBox[{"\[LeftSkeleton]", "2", "\[RightSkeleton]"}], "]"}]}], 
+           "}"}], ",", "ce_"}], "]"}], ":=", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Append", "[", 
+            RowBox[{"\[LeftSkeleton]", "2", "\[RightSkeleton]"}], "]"}], ",", 
+           "1", ",", "ce"}], "}"}], "/;", 
+         RowBox[{"ce", "\[NotEqual]", "pe"}]}]}], ";", 
+       RowBox[{"result", "=", 
+        RowBox[{"Fold", "[", 
+         RowBox[{"f", ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", "}"}], ",", "1", ",", "0"}], "}"}], ",", "bits"}], 
+         "]"}]}], ";", 
+       RowBox[{"result", "=", 
+        RowBox[{"Append", "[", 
+         RowBox[{
+          RowBox[{
+          "result", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
+          ",", 
+          RowBox[{
+          "result", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}]}], 
+         "]"}]}], ";", "result"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[9793]]& )]},
+   {"4677", "4.033620000001918`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"result", "=", 
+       RowBox[{"Fold", "[", 
+        RowBox[{"f", ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", "}"}], ",", "1", ",", "0"}], "}"}], ",", "bits"}], 
+        "]"}]}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[10161]]& )]},
+   {"4677", "4.02053700000269`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"Fold", "[", 
+       RowBox[{"f", ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", "}"}], ",", "1", ",", "0"}], "}"}], ",", "bits"}], 
+       "]"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[10177]]& )]},
+   {"299328", "3.3307840000004774`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"f", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"fs_", ",", "cs_", ",", "pe_"}], "}"}], ",", "ce_"}], "]"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[9841]]& )]},
+   {"507", "2.8485209999995504`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"result", "=", 
+       RowBox[{"bitcube", "[", "result", "]"}]}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[20305]]& )]},
+   {"507", "2.846579999999534`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"bitcube", "[", "result", "]"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[18465]]& )]},
+   {"507", "2.8445820000000026`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"bitcube", "[", "t_", "]"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[8897]]& )]},
+   {"507", "2.841606999999726`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"Module", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"result", "=", "t"}], "}"}], ",", 
+        RowBox[{
+         RowBox[{"result", "=", 
+          RowBox[{"PadRight", "[", 
+           RowBox[{"Map", "[", 
+            RowBox[{"\[LeftSkeleton]", "3", "\[RightSkeleton]"}], "]"}], 
+           "]"}]}], ";", 
+         RowBox[{"result", "=", 
+          RowBox[{"Flatten", "[", 
+           RowBox[{"result", ",", 
+            RowBox[{"{", 
+             RowBox[{"\[LeftSkeleton]", "2", "\[RightSkeleton]"}], "}"}]}], 
+           "]"}]}], ";", "result"}]}], "]"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[8913]]& )]},
+   {"507", "2.829127000000227`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{
+       RowBox[{"result", "=", 
+        RowBox[{"PadRight", "[", 
+         RowBox[{"Map", "[", 
+          RowBox[{"bits", ",", "result", ",", 
+           RowBox[{"{", 
+            RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], "}"}]}], 
+          "]"}], "]"}]}], ";", 
+       RowBox[{"result", "=", 
+        RowBox[{"Flatten", "[", 
+         RowBox[{"result", ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"\[LeftSkeleton]", "2", "\[RightSkeleton]"}], "}"}]}], 
+           "}"}]}], "]"}]}], ";", "result"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[8977]]& )]},
+   {"507", "2.8098549999997715`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"result", "=", 
+       RowBox[{"PadRight", "[", 
+        RowBox[{"Map", "[", 
+         RowBox[{"bits", ",", "result", ",", 
+          RowBox[{"{", "2", "}"}]}], "]"}], "]"}]}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[9009]]& )]},
+   {"507", "2.8081179999997516`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"PadRight", "[", 
+       RowBox[{"Map", "[", 
+        RowBox[{"bits", ",", "result", ",", 
+         RowBox[{"{", "2", "}"}]}], "]"}], "]"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[9025]]& )]},
+   {"51340", "2.8066150000007326`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"collectBits", "[", 
+       RowBox[{"x_", ",", "bits_"}], "]"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[8273]]& )]},
+   {"507", "2.7946119999998302`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"Map", "[", 
+       RowBox[{"bits", ",", "result", ",", 
+        RowBox[{"{", "2", "}"}]}], "]"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[9041]]& )]},
+   {"32448", "2.737811000001045`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"bits", "[", "number_", "]"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[8097]]& )]},
+   {"32448", "2.610893000001454`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{
+       RowBox[{
+        RowBox[{"lastbit", "[", "x_", "]"}], ":=", 
+        RowBox[{
+         RowBox[{"Ceiling", "[", 
+          RowBox[{"Times", "[", 
+           RowBox[{"\[LeftSkeleton]", "2", "\[RightSkeleton]"}], "]"}], "]"}],
+          "-", 
+         RowBox[{"Floor", "[", 
+          RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], "]"}]}]}], 
+       ";", 
+       RowBox[{
+        RowBox[{"collectBits", "[", 
+         RowBox[{"x_", ",", "bits_"}], "]"}], ":=", 
+        RowBox[{
+         RowBox[{"collectBits", "[", 
+          RowBox[{
+           RowBox[{"Floor", "[", 
+            RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], "]"}], ",", 
+           
+           RowBox[{"Append", "[", 
+            RowBox[{"\[LeftSkeleton]", "2", "\[RightSkeleton]"}], "]"}]}], 
+          "]"}], "/;", 
+         RowBox[{"x", ">", "0"}]}]}], ";", 
+       RowBox[{
+        RowBox[{"collectBits", "[", 
+         RowBox[{"x_", ",", "bits_"}], "]"}], ":=", 
+        RowBox[{"bits", "/;", 
+         RowBox[{"x", "\[Equal]", "0"}]}]}], ";", 
+       RowBox[{"collectBits", "[", 
+        RowBox[{"number", ",", 
+         RowBox[{"{", "}"}]}], "]"}]}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[8113]]& )]},
+   {"18892", "2.3087629999973274`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"collectBits", "[", 
+       RowBox[{
+        RowBox[{"Floor", "[", 
+         FractionBox["x", "2"], "]"}], ",", 
+        RowBox[{"Append", "[", 
+         RowBox[{"bits", ",", 
+          RowBox[{"lastbit", "[", "x", "]"}]}], "]"}]}], "]"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[8321]]& )]},
+   {"32448", "1.4549690000008866`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"collectBits", "[", 
+       RowBox[{"number", ",", 
+        RowBox[{"{", "}"}]}], "]"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[8529]]& )]},
+   {"281014", "0.870692000006386`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"{", 
+       RowBox[{"fs", ",", 
+        RowBox[{"cs", "+", "1"}], ",", "ce"}], "}"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[9921]]& )]},
+   {"18892", "0.44612999999762337`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"Append", "[", 
+       RowBox[{"bits", ",", 
+        RowBox[{"lastbit", "[", "x", "]"}]}], "]"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[8385]]& )]},
+   {"507", "0.440662999999887`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"result", "=", 
+       RowBox[{"quantize", "[", "result", "]"}]}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[20257]]& )]},
+   {"507", "0.4390260000001547`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"quantize", "[", "result", "]"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[18369]]& )]},
+   {"507", "0.4373770000002537`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"quantize", "[", "t_", "]"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[6609]]& )]},
+   {"507", "0.4337390000003438`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"Map", "[", 
+       RowBox[{
+        RowBox[{
+         FractionBox[
+          RowBox[{
+           RowBox[{"Slot", "[", 
+            RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], "]"}], 
+           "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
+          RowBox[{"Part", "[", 
+           RowBox[{"\[LeftSkeleton]", "2", "\[RightSkeleton]"}], "]"}]], 
+         "&"}], ",", 
+        RowBox[{"Flatten", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"t", ",", "Quant"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", "2", "}"}], ",", 
+            RowBox[{"{", "3", "}"}], ",", 
+            RowBox[{"{", "1", "}"}]}], "}"}]}], "]"}], ",", 
+        RowBox[{"{", "2", "}"}]}], "]"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[6625]]& )]},
+   {"18892", "0.39987599999716394`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"lastbit", "[", "x", "]"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[8417]]& )]},
+   {"507", "0.3688019999999881`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"result", "=", 
+       RowBox[{"normalize", "[", "result", "]"}]}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[18257]]& )]},
+   {"507", "0.36728399999998373`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"normalize", "[", "result", "]"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[18273]]& )]},
+   {"18892", "0.36637499999784495`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"lastbit", "[", "x_", "]"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[8161]]& )]},
+   {"507", "0.365261000000487`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"normalize", "[", "t_", "]"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[5201]]& )]},
+   {"507", "0.36196900000035725`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"Module", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"f", ",", 
+          RowBox[{"result", "=", "t"}]}], "}"}], ",", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"f", "[", 
+           RowBox[{"Pattern", "[", 
+            RowBox[{"\[LeftSkeleton]", "2", "\[RightSkeleton]"}], "]"}], 
+           "]"}], ":=", 
+          RowBox[{"row", "/;", 
+           RowBox[{"Or", "[", 
+            RowBox[{"\[LeftSkeleton]", "2", "\[RightSkeleton]"}], "]"}]}]}], 
+         ";", 
+         RowBox[{
+          RowBox[{"f", "[", 
+           RowBox[{"Pattern", "[", 
+            RowBox[{"\[LeftSkeleton]", "2", "\[RightSkeleton]"}], "]"}], 
+           "]"}], ":=", 
+          RowBox[{"Module", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"\[LeftSkeleton]", "2", "\[RightSkeleton]"}], "}"}], ",", 
+            RowBox[{"CompoundExpression", "[", 
+             RowBox[{"\[LeftSkeleton]", "3", "\[RightSkeleton]"}], "]"}]}], 
+           "]"}]}], ";", 
+         RowBox[{"result", "=", 
+          RowBox[{"f", "/@", "result"}]}], ";", 
+         RowBox[{"result", "=", 
+          RowBox[{"Flatten", "[", 
+           RowBox[{"result", ",", 
+            RowBox[{"{", 
+             RowBox[{"\[LeftSkeleton]", "2", "\[RightSkeleton]"}], "}"}]}], 
+           "]"}]}], ";", 
+         RowBox[{"result", "=", 
+          RowBox[{"f", "/@", "result"}]}], ";", 
+         RowBox[{"result", "=", 
+          RowBox[{"Flatten", "[", 
+           RowBox[{"result", ",", 
+            RowBox[{"{", 
+             RowBox[{"\[LeftSkeleton]", "2", "\[RightSkeleton]"}], "}"}]}], 
+           "]"}]}], ";", 
+         RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}]}]}], "]"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[5217]]& )]},
+   {"32448", "0.3486740000009263`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{
+       RowBox[{"collectBits", "[", 
+        RowBox[{"x_", ",", "bits_"}], "]"}], ":=", 
+       RowBox[{
+        RowBox[{"collectBits", "[", 
+         RowBox[{
+          RowBox[{"Floor", "[", 
+           RowBox[{"Times", "[", 
+            RowBox[{"\[LeftSkeleton]", "2", "\[RightSkeleton]"}], "]"}], 
+           "]"}], ",", 
+          RowBox[{"Append", "[", 
+           RowBox[{"bits", ",", 
+            RowBox[{"lastbit", "[", 
+             RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], "]"}]}], 
+           "]"}]}], "]"}], "/;", 
+        RowBox[{"x", ">", "0"}]}]}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[8257]]& )]},
+   {"299328", "0.3432459999955313`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"ce", "\[Equal]", "pe"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[9969]]& )]},
+   {"281014", "0.3294110000014996`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"cs", "+", "1"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[9953]]& )]},
+   {"507", "0.3219420000003197`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{
+       RowBox[{
+        RowBox[{"f", "[", "row_", "]"}], ":=", 
+        RowBox[{"row", "/;", 
+         RowBox[{
+          RowBox[{"Equal", "[", 
+           RowBox[{"\[LeftSkeleton]", "2", "\[RightSkeleton]"}], "]"}], "||", 
+          
+          RowBox[{"Unequal", "[", 
+           RowBox[{"\[LeftSkeleton]", "2", "\[RightSkeleton]"}], "]"}]}]}]}], 
+       ";", 
+       RowBox[{
+        RowBox[{"f", "[", "row_", "]"}], ":=", 
+        RowBox[{"Module", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"g", ",", "r"}], "}"}], ",", 
+          RowBox[{
+           RowBox[{"SetDelayed", "[", 
+            RowBox[{"\[LeftSkeleton]", "2", "\[RightSkeleton]"}], "]"}], ";", 
+           
+           RowBox[{"SetDelayed", "[", 
+            RowBox[{"\[LeftSkeleton]", "2", "\[RightSkeleton]"}], "]"}], ";", 
+           
+           RowBox[{"Part", "[", 
+            RowBox[{"\[LeftSkeleton]", "2", "\[RightSkeleton]"}], "]"}]}]}], 
+         "]"}]}], ";", 
+       RowBox[{"result", "=", 
+        RowBox[{"f", "/@", "result"}]}], ";", 
+       RowBox[{"result", "=", 
+        RowBox[{"Flatten", "[", 
+         RowBox[{"result", ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], "}"}]}], 
+           "}"}]}], "]"}]}], ";", 
+       RowBox[{"result", "=", 
+        RowBox[{"f", "/@", "result"}]}], ";", 
+       RowBox[{"result", "=", 
+        RowBox[{"Flatten", "[", 
+         RowBox[{"result", ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], "}"}]}], 
+           "}"}]}], "]"}]}], ";", 
+       RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}]}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[5297]]& )]},
+   {"32448", "0.30263700000088534`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{
+       RowBox[{"collectBits", "[", 
+        RowBox[{"x_", ",", "bits_"}], "]"}], ":=", 
+       RowBox[{"bits", "/;", 
+        RowBox[{"x", "\[Equal]", "0"}]}]}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[8449]]& )]},
+   {"507", "0.2906329999997581`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"result", "=", 
+       RowBox[{"rounded", "[", "result", "]"}]}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[20289]]& )]},
+   {"507", "0.2882049999997207`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"rounded", "[", "result", "]"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[18433]]& )]},
+   {"507", "0.2865409999998292`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"rounded", "[", "t_", "]"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[7281]]& )]},
+   {"507", "0.2842260000001602`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"Map", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"Abs", "[", 
+          RowBox[{"Round", "[", 
+           RowBox[{"Slot", "[", 
+            RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], "]"}], 
+           "]"}], "]"}], "&"}], ",", "t", ",", 
+        RowBox[{"{", "2", "}"}]}], "]"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[7297]]& )]},
+   {"507", "0.28403700000023946`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"signsMatrix", "=", 
+       RowBox[{"signs", "[", "result", "]"}]}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[20273]]& )]},
+   {"507", "0.28253400000045303`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"signs", "[", "result", "]"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[18401]]& )]},
+   {"32448", "0.28137300000136634`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{
+       RowBox[{"lastbit", "[", "x_", "]"}], ":=", 
+       RowBox[{
+        RowBox[{"Ceiling", "[", 
+         RowBox[{"x", " ", 
+          RowBox[{"Power", "[", 
+           RowBox[{"\[LeftSkeleton]", "2", "\[RightSkeleton]"}], "]"}]}], 
+         "]"}], "-", 
+        RowBox[{"Floor", "[", 
+         RowBox[{"Times", "[", 
+          RowBox[{"\[LeftSkeleton]", "2", "\[RightSkeleton]"}], "]"}], 
+         "]"}]}]}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[8145]]& )]},
+   {"507", "0.28065000000006535`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"signs", "[", "t_", "]"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[7425]]& )]},
+   {"507", "0.2782040000002439`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"Map", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"If", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"Slot", "[", 
+             RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], "]"}], ">",
+             "0"}], ",", "1", ",", "0"}], "]"}], "&"}], ",", "t", ",", 
+        RowBox[{"{", "2", "}"}]}], "]"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[7441]]& )]},
+   {"18892", "0.2575379999981635`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{
+       RowBox[{"Ceiling", "[", 
+        FractionBox["x", "2"], "]"}], "-", 
+       RowBox[{"Floor", "[", 
+        RowBox[{"x", " ", 
+         RowBox[{"Power", "[", 
+          RowBox[{"\[LeftSkeleton]", "2", "\[RightSkeleton]"}], "]"}]}], 
+        "]"}]}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[8177]]& )]},
+   {"32448", "0.2446409999986372`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"collectBits", "[", 
+       RowBox[{"x_", ",", "bits_"}], "]"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[8465]]& )]},
+   {"32448", "0.22209399999906054`", 
+    ButtonBox[
+     TagBox[
+      FractionBox[
+       RowBox[{"#1", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
+       RowBox[{"#1", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}]],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[6673]]& )]},
+   {"18314", "0.22041199999500805`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"f", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"fs_", ",", "cs_", ",", "pe_"}], "}"}], ",", "ce_"}], "]"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[10001]]& )]},
+   {"507", "0.14344800000000646`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"result", "=", 
+       RowBox[{"f", "/@", "result"}]}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[6081]]& )]},
+   {"507", "0.1428959999996664`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"result", "=", 
+       RowBox[{"f", "/@", "result"}]}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[6225]]& )]},
+   {"507", "0.1419879999997704`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"f", "/@", "result"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[6097]]& )]},
+   {"8112", "0.14185999999861565`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"f", "[", "row_", "]"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[5345]]& )]},
+   {"507", "0.14149599999916518`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"f", "/@", "result"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[6241]]& )]},
+   {"612", "0.12058999999999287`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"f", "[", "row_", "]"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[5505]]& )]},
+   {"32448", "0.11790099999618064`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"Abs", "[", 
+       RowBox[{"Round", "[", "#1", "]"}], "]"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[7345]]& )]},
+   {"612", "0.11739999999937822`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"Module", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"g", ",", "r"}], "}"}], ",", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"g", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"\[LeftSkeleton]", "2", "\[RightSkeleton]"}], "}"}], ",", 
+            RowBox[{"Pattern", "[", 
+             RowBox[{"\[LeftSkeleton]", "2", "\[RightSkeleton]"}], "]"}]}], 
+           "]"}], ":=", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"\[LeftSkeleton]", "2", "\[RightSkeleton]"}], "}"}], "/;", 
+           RowBox[{"Unequal", "[", 
+            RowBox[{"\[LeftSkeleton]", "2", "\[RightSkeleton]"}], "]"}]}]}], 
+         ";", 
+         RowBox[{
+          RowBox[{"g", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"\[LeftSkeleton]", "2", "\[RightSkeleton]"}], "}"}], ",", 
+            RowBox[{"Pattern", "[", 
+             RowBox[{"\[LeftSkeleton]", "2", "\[RightSkeleton]"}], "]"}]}], 
+           "]"}], ":=", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Append", "[", 
+             RowBox[{"\[LeftSkeleton]", "2", "\[RightSkeleton]"}], "]"}], ",",
+             "last"}], "}"}]}], ";", 
+         RowBox[{
+          RowBox[{"Fold", "[", 
+           RowBox[{"g", ",", 
+            RowBox[{"{", 
+             RowBox[{"\[LeftSkeleton]", "2", "\[RightSkeleton]"}], "}"}], ",",
+             "row"}], "]"}], "\[LeftDoubleBracket]", "1", 
+          "\[RightDoubleBracket]"}]}]}], "]"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[5521]]& )]},
+   {"32448", "0.11219299999697796`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"#1", ">", "0"}], ",", "1", ",", "0"}], "]"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[7489]]& )]},
+   {"18892", "0.0973699999969142`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"Floor", "[", 
+       FractionBox["x", "2"], "]"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[8353]]& )]},
+   {"612", "0.09449999999995384`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{
+       RowBox[{
+        RowBox[{"g", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Pattern", "[", 
+             RowBox[{"\[LeftSkeleton]", "2", "\[RightSkeleton]"}], "]"}], ",", 
+            RowBox[{"Pattern", "[", 
+             RowBox[{"\[LeftSkeleton]", "2", "\[RightSkeleton]"}], "]"}]}], 
+           "}"}], ",", "item_"}], "]"}], ":=", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Append", "[", 
+            RowBox[{"\[LeftSkeleton]", "2", "\[RightSkeleton]"}], "]"}], ",", 
+           "item"}], "}"}], "/;", 
+         RowBox[{"item", "\[NotEqual]", 
+          RowBox[{"-", "1"}]}]}]}], ";", 
+       RowBox[{
+        RowBox[{"g", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Pattern", "[", 
+             RowBox[{"\[LeftSkeleton]", "2", "\[RightSkeleton]"}], "]"}], ",", 
+            RowBox[{"Pattern", "[", 
+             RowBox[{"\[LeftSkeleton]", "2", "\[RightSkeleton]"}], "]"}]}], 
+           "}"}], ",", "item_"}], "]"}], ":=", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"Append", "[", 
+           RowBox[{"result", ",", "last"}], "]"}], ",", "last"}], "}"}]}], 
+       ";", 
+       RowBox[{
+        RowBox[{"Fold", "[", 
+         RowBox[{"g", ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", "}"}], ",", 
+            RowBox[{"-", "1"}]}], "}"}], ",", "row"}], "]"}], 
+        "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}]}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[5585]]& )]},
+   {"18892", "0.09030299999926683`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"Ceiling", "[", 
+       FractionBox["x", "2"], "]"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[8193]]& )]},
+   {"8112", "0.08425699999966696`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{
+       RowBox[{
+        RowBox[{"First", "[", "row", "]"}], "\[Equal]", 
+        RowBox[{"-", "1"}]}], "||", 
+       RowBox[{
+        RowBox[{"Last", "[", "row", "]"}], "\[NotEqual]", 
+        RowBox[{"-", "1"}]}]}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[5377]]& )]},
+   {"18892", "0.08162399999707759`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"Floor", "[", 
+       FractionBox["x", "2"], "]"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[8225]]& )]},
+   {"612", "0.07834400000021446`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{
+       RowBox[{"Fold", "[", 
+        RowBox[{"g", ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", "}"}], ",", 
+           RowBox[{"-", "1"}]}], "}"}], ",", "row"}], "]"}], 
+       "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[5953]]& )]},
+   {"612", "0.07679000000052838`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"Fold", "[", 
+       RowBox[{"g", ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", "}"}], ",", 
+          RowBox[{"-", "1"}]}], "}"}], ",", "row"}], "]"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[5969]]& )]},
+   {"4677", "0.07492300000001251`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{
+       RowBox[{"f", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"fs_", ",", "cs_", ",", "pe_"}], "}"}], ",", "ce_"}], "]"}],
+        ":=", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"Append", "[", 
+           RowBox[{"fs", ",", "cs"}], "]"}], ",", "1", ",", "ce"}], "}"}], "/;", 
+        RowBox[{"ce", "\[NotEqual]", "pe"}]}]}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[9985]]& )]},
+   {"51340", "0.0730529999984526`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"x", ">", "0"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[8433]]& )]},
+   {"18314", "0.06311700000020437`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"Append", "[", 
+         RowBox[{"fs", ",", "cs"}], "]"}], ",", "1", ",", "ce"}], "}"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[10081]]& )]},
+   {"4677", "0.06003400000020065`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{
+       RowBox[{"f", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"fs_", ",", "cs_", ",", "pe_"}], "}"}], ",", "ce_"}], "]"}],
+        ":=", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"fs", ",", 
+          RowBox[{"cs", "+", "1"}], ",", "ce"}], "}"}], "/;", 
+        RowBox[{"ce", "\[Equal]", "pe"}]}]}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[9825]]& )]},
+   {"18892", "0.04803299999906585`", 
+    ButtonBox[
+     TagBox[
+      FractionBox["x", "2"],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[8369]]& )]},
+   {"4896", "0.04756999999946743`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"g", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"result_", ",", "last_"}], "}"}], ",", "item_"}], "]"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[5633]]& )]},
+   {"4677", "0.047525999997560575`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"result", "=", 
+       RowBox[{"Append", "[", 
+        RowBox[{
+         RowBox[{
+         "result", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
+         ",", 
+         RowBox[{
+         "result", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}]}], 
+        "]"}]}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[10257]]& )]},
+   {"32448", "0.04306399999819632`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"Round", "[", "#1", "]"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[7361]]& )]},
+   {"18892", "0.04197699999954807`", 
+    ButtonBox[
+     TagBox[
+      FractionBox["x", "2"],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[8209]]& )]},
+   {"32448", "0.04095800000104077`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"x", "\[Equal]", "0"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[8513]]& )]},
+   {"32448", "0.039761999998603414`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"#1", ">", "0"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[7521]]& )]},
+   {"32448", "0.03951300000002789`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"#1", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[6689]]& )]},
+   {"18892", "0.038118999998317804`", 
+    ButtonBox[
+     TagBox[
+      FractionBox["x", "2"],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[8241]]& )]},
+   {"50135", "0.03703800000079127`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"{", "}"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[13521]]& )]},
+   {"4677", "0.03592599999825552`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"Append", "[", 
+       RowBox[{
+        RowBox[{
+        "result", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], ",", 
+        RowBox[{
+        "result", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}]}], 
+       "]"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[10273]]& )]},
+   {"32448", "0.034924000000756905`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"#1", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[6721]]& )]},
+   {"8112", "0.0300849999992181`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{
+       RowBox[{"First", "[", "row", "]"}], "\[Equal]", 
+       RowBox[{"-", "1"}]}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[5393]]& )]},
+   {"7956", "0.028511000000833064`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{
+       RowBox[{"Last", "[", "row", "]"}], "\[NotEqual]", 
+       RowBox[{"-", "1"}]}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[5441]]& )]},
+   {"18314", "0.025867999998354207`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"Append", "[", 
+       RowBox[{"fs", ",", "cs"}], "]"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[10113]]& )]},
+   {"32955", "0.025351999998576957`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{
+       FractionBox[
+        RowBox[{"#1", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
+        
+        RowBox[{
+         RowBox[{"Slot", "[", 
+          RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], "]"}], 
+         "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}]], "&"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[6657]]& )]},
+   {"32955", "0.025129999998966923`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{
+       RowBox[{"Abs", "[", 
+        RowBox[{"Round", "[", "#1", "]"}], "]"}], "&"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[7329]]& )]},
+   {"32955", "0.025118999999790503`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{"#1", ">", "0"}], ",", "1", ",", "0"}], "]"}], "&"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[7473]]& )]},
+   {"18314", "0.023130999997420076`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"ce", "\[NotEqual]", "pe"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[10145]]& )]},
+   {"507", "0.019521999999881245`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"result", "=", 
+       RowBox[{"restructure", "[", "result", "]"}]}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[20241]]& )]},
+   {"2448", "0.01815299999921649`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"g", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"result_", ",", "last_"}], "}"}], ",", "item_"}], "]"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[5825]]& )]},
+   {"507", "0.01806999999985237`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"restructure", "[", "result", "]"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[18305]]& )]},
+   {"507", "0.015380000000249083`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"restructure", "[", "t_", "]"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[6401]]& )]},
+   {"507", "0.014567999999655967`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"result", "=", 
+       RowBox[{"Flatten", "[", 
+        RowBox[{"result", ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", "3", "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"1", ",", "2"}], "}"}]}], "}"}]}], "]"}]}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[9089]]& )]},
+   {"507", "0.014060999999770729`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"Flatten", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"t", ",", "Quant"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", "2", "}"}], ",", 
+          RowBox[{"{", "3", "}"}], ",", 
+          RowBox[{"{", "1", "}"}]}], "}"}]}], "]"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[6753]]& )]},
+   {"507", "0.012969999999825177`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"Flatten", "[", 
+       RowBox[{"result", ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", "3", "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"1", ",", "2"}], "}"}]}], "}"}]}], "]"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[9105]]& )]},
+   {"507", "0.012686000000485365`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"FourierDCT", "[", "t", "]"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[6417]]& )]},
+   {"507", "0.012108000000296215`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{
+       RowBox[{"f", "[", "row_", "]"}], ":=", 
+       RowBox[{"Module", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"g", ",", "r"}], "}"}], ",", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"g", "[", 
+            RowBox[{"\[LeftSkeleton]", "2", "\[RightSkeleton]"}], "]"}], ":=", 
+           RowBox[{"Condition", "[", 
+            RowBox[{"\[LeftSkeleton]", "2", "\[RightSkeleton]"}], "]"}]}], 
+          ";", 
+          RowBox[{
+           RowBox[{"g", "[", 
+            RowBox[{"\[LeftSkeleton]", "2", "\[RightSkeleton]"}], "]"}], ":=", 
+           RowBox[{"{", 
+            RowBox[{"\[LeftSkeleton]", "2", "\[RightSkeleton]"}], "}"}]}], 
+          ";", 
+          RowBox[{
+           RowBox[{"Fold", "[", 
+            RowBox[{"\[LeftSkeleton]", "3", "\[RightSkeleton]"}], "]"}], 
+           "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}]}]}], "]"}]}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[5489]]& )]},
+   {"8112", "0.011425999998238012`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"First", "[", "row", "]"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[5409]]& )]},
+   {"4677", "0.011266999999691052`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"result", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[10305]]& )]},
+   {"7956", "0.011014000000670876`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"Last", "[", "row", "]"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[5457]]& )]},
+   {"2448", "0.00827599999973927`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"Append", "[", 
+         RowBox[{"result", ",", "last"}], "]"}], ",", "last"}], "}"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[5889]]& )]},
+   {"2448", "0.007932999999866297`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"Append", "[", 
+         RowBox[{"result", ",", "item"}], "]"}], ",", "item"}], "}"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[5713]]& )]},
+   {"4677", "0.007794000000359347`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"result", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[10337]]& )]},
+   {"507", "0.0071249999996894076`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"result", "=", 
+       RowBox[{"Flatten", "[", 
+        RowBox[{"result", ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", "2", "}"}], ",", 
+           RowBox[{"{", "1", "}"}]}], "}"}]}], "]"}]}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[6113]]& )]},
+   {"612", "0.006852000000208136`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{
+       RowBox[{"g", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"result_", ",", "last_"}], "}"}], ",", "item_"}], "]"}], ":=", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"Append", "[", 
+           RowBox[{"result", ",", "item"}], "]"}], ",", "item"}], "}"}], "/;", 
+        RowBox[{"item", "\[NotEqual]", 
+         RowBox[{"-", "1"}]}]}]}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[5617]]& )]},
+   {"612", "0.006165999999382166`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{
+       RowBox[{"g", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"result_", ",", "last_"}], "}"}], ",", "item_"}], "]"}], ":=", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Append", "[", 
+          RowBox[{"result", ",", "last"}], "]"}], ",", "last"}], "}"}]}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[5809]]& )]},
+   {"4896", "0.006009999999719184`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"item", "\[NotEqual]", 
+       RowBox[{"-", "1"}]}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[5777]]& )]},
+   {"507", "0.005644999999361744`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"Flatten", "[", 
+       RowBox[{"result", ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", "2", "}"}], ",", 
+          RowBox[{"{", "1", "}"}]}], "}"}]}], "]"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[6129]]& )]},
+   {"507", "0.005573000000055117`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{
+       RowBox[{"f", "[", "row_", "]"}], ":=", 
+       RowBox[{"row", "/;", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"First", "[", 
+           RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], "]"}], 
+          "\[Equal]", 
+          RowBox[{"-", "1"}]}], "||", 
+         RowBox[{
+          RowBox[{"Last", "[", 
+           RowBox[{"\[LeftSkeleton]", "1", "\[RightSkeleton]"}], "]"}], 
+          "\[NotEqual]", 
+          RowBox[{"-", "1"}]}]}]}]}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[5329]]& )]},
+   {"507", "0.005302000000057205`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"result", "=", 
+       RowBox[{"Flatten", "[", 
+        RowBox[{"result", ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", "2", "}"}], ",", 
+           RowBox[{"{", "1", "}"}]}], "}"}]}], "]"}]}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[6257]]& )]},
+   {"6896", "0.004795000000427763`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"-", "1"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[6049]]& )]},
+   {"4677", "0.004496000001466882`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"{", 
+       RowBox[{"fs_", ",", "cs_", ",", "pe_"}], "}"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[9873]]& )]},
+   {"4677", "0.004224999999934198`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"{", 
+       RowBox[{"fs_", ",", "cs_", ",", "pe_"}], "}"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[10033]]& )]},
+   {"507", "0.003834999999895672`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"Flatten", "[", 
+       RowBox[{"result", ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", "2", "}"}], ",", 
+          RowBox[{"{", "1", "}"}]}], "}"}]}], "]"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[6273]]& )]},
+   {"2448", "0.0035499999994783593`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"Append", "[", 
+       RowBox[{"result", ",", "last"}], "]"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[5921]]& )]},
+   {"2448", "0.003155000000049313`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"Append", "[", 
+       RowBox[{"result", ",", "item"}], "]"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[5745]]& )]},
+   {"1", "0.002012999999976728`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"result", "=", 
+       RowBox[{"getTransformants", "/@", "result"}]}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[12001]]& )]},
+   {"1", "0.0020079999999893516`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"getTransformants", "/@", "result"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[12017]]& )]},
+   {"3", "0.0019759999999848787`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"getTransformants", "[", "layer_", "]"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[4849]]& )]},
+   {"3", "0.0019599999999684314`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"Partition", "[", 
+       RowBox[{"layer", ",", 
+        RowBox[{"{", 
+         RowBox[{"8", ",", "8"}], "}"}], ",", "8", ",", 
+        RowBox[{"{", 
+         RowBox[{"1", ",", "1"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"-", "1"}], "}"}]}], "]"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[4865]]& )]},
+   {"507", "0.0018499999995640337`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"{", 
+       RowBox[{"t", ",", "Quant"}], "}"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[6785]]& )]},
+   {"507", "0.0013100000001315948`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"{", 
+       RowBox[{"result", ",", "signsMatrix"}], "}"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[20337]]& )]},
+   {"612", "0.000529999999997699`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"{", 
+       RowBox[{"result_", ",", "last_"}], "}"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[5665]]& )]},
+   {"612", "0.0005139999999244083`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"{", 
+       RowBox[{"result_", ",", "last_"}], "}"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[5857]]& )]},
+   {"1", "0.0005090000000222972`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"result", "=", 
+       RowBox[{"getRGB", "[", "result", "]"}]}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[11969]]& )]},
+   {"1", "0.0005060000000298714`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"getRGB", "[", "result", "]"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[11985]]& )]},
+   {"1", "0.000503000000009024`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"getRGB", "[", "imageData_", "]"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[4529]]& )]},
+   {"1", "0.0004979999999932261`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"Flatten", "[", 
+       RowBox[{"imageData", ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", "3", "}"}], ",", 
+          RowBox[{"{", "1", "}"}], ",", 
+          RowBox[{"{", "2", "}"}]}], "}"}]}], "]"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[4545]]& )]},
+   {"507", "0.0004049999996595943`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"3", ",", "5", ",", "7", ",", "9", ",", "11", ",", "13", ",", 
+          RowBox[{"\[LeftSkeleton]", "2", "\[RightSkeleton]"}]}], "}"}], ",", 
+        
+        RowBox[{"{", 
+         RowBox[{
+         "5", ",", "7", ",", "9", ",", "11", ",", "13", ",", "15", ",", 
+          RowBox[{"\[LeftSkeleton]", "2", "\[RightSkeleton]"}]}], "}"}], ",", 
+        
+        RowBox[{"{", 
+         RowBox[{
+         "7", ",", "9", ",", "11", ",", "13", ",", "15", ",", "17", ",", 
+          RowBox[{"\[LeftSkeleton]", "2", "\[RightSkeleton]"}]}], "}"}], ",", 
+        
+        RowBox[{"{", 
+         RowBox[{
+         "9", ",", "11", ",", "13", ",", "15", ",", "17", ",", "19", ",", 
+          RowBox[{"\[LeftSkeleton]", "2", "\[RightSkeleton]"}]}], "}"}], ",", 
+        
+        RowBox[{"{", 
+         RowBox[{
+         "11", ",", "13", ",", "15", ",", "17", ",", "19", ",", "21", ",", 
+          RowBox[{"\[LeftSkeleton]", "2", "\[RightSkeleton]"}]}], "}"}], ",", 
+        
+        RowBox[{"{", 
+         RowBox[{
+         "13", ",", "15", ",", "17", ",", "19", ",", "21", ",", "23", ",", 
+          RowBox[{"\[LeftSkeleton]", "2", "\[RightSkeleton]"}]}], "}"}], ",", 
+        
+        RowBox[{"\[LeftSkeleton]", "2", "\[RightSkeleton]"}]}], "}"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[6545]]& )]},
+   {"507", "0.0003619999997965806`", 
+    ButtonBox[
+     TagBox["restructure",
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[19617]]& )]},
+   {"507", "0.0003290000001641147`", 
+    ButtonBox[
+     TagBox["FourierDCT",
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[19601]]& )]},
+   {"1", "0.00004899999998997373`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"result", "=", 
+       RowBox[{"getImageData", "[", "result", "]"}]}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[11937]]& )]},
+   {"1", "0.00004500000000007276`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"getImageData", "[", "result", "]"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[11953]]& )]},
+   {"1", "0.000040000000012696546`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"getImageData", "[", "image_", "]"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[4337]]& )]},
+   {"1", "0.00003300000003036985`", 
+    ButtonBox[
+     TagBox[
+      RowBox[{"ImageData", "[", 
+       RowBox[{"image", ",", "\<\"Byte\"\>"}], "]"}],
+      HoldForm],
+     Active->True,
+     ButtonFunction:>(FrontEnd`SelectObject[
+       FrontEnd`NotebookInterfaceObject[4353]]& )]}
+  },
+  GridBoxAlignment->{
+   "Columns" -> {Right, Center, {Left}}, "ColumnsIndexed" -> {}, 
+    "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+  GridBoxDividers->{
+   "Columns" -> {False, {True}, False}, "ColumnsIndexed" -> {}, 
+    "Rows" -> {False, True, {False}, False}, "RowsIndexed" -> {}}]], "Text",
+ ButtonBoxOptions->{Alignment->Left}]
+},
+WindowSize->{740, 818},
+WindowMargins->{{44, Automatic}, {-4, Automatic}},
+FrontEndVersion->"8.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (November 6, \
+2010)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[557, 20, 64612, 1969, 4294, "Text"]
+}
+]
+*)
+
+(* End of internal cache information *)
+
