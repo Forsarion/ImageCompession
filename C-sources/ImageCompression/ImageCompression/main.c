@@ -14,8 +14,8 @@ int main(int argc, const char * argv[])
     BMP*    bmp;
     UINT    width, height;
     
-    const char * inputImagePath = "/Users/andrey.moskvin/Development/ImageCompression/C-sources/ImageCompression/ImageCompression/Im113.BMP";
-    const char * outputImagePath = "/Users/andrey.moskvin/Development/ImageCompression/C-sources/ImageCompression/ImageCompression/Im113-output.BMP";
+    const char * inputImagePath = argv[1];
+    const char * outputImagePath = argv[2];
 
     /* Read an image file */
 
