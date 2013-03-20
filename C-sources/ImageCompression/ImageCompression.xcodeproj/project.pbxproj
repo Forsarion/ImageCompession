@@ -10,6 +10,7 @@
 		8680B53816FA055500DF19CF /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 8680B53716FA055500DF19CF /* main.c */; };
 		8680B53A16FA055500DF19CF /* ImageCompression.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8680B53916FA055500DF19CF /* ImageCompression.1 */; };
 		8680B54816FA0F9500DF19CF /* qdbmp.c in Sources */ = {isa = PBXBuildFile; fileRef = 8680B54616FA0F9500DF19CF /* qdbmp.c */; };
+		8680B54B16FA1BE400DF19CF /* DCT.c in Sources */ = {isa = PBXBuildFile; fileRef = 8680B54A16FA1BE400DF19CF /* DCT.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -32,6 +33,8 @@
 		8680B54616FA0F9500DF19CF /* qdbmp.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = qdbmp.c; sourceTree = "<group>"; };
 		8680B54716FA0F9500DF19CF /* qdbmp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = qdbmp.h; sourceTree = "<group>"; };
 		8680B54916FA104F00DF19CF /* Im113.BMP */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = Im113.BMP; sourceTree = "<group>"; };
+		8680B54A16FA1BE400DF19CF /* DCT.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = DCT.c; sourceTree = "<group>"; };
+		8680B54C16FA1C6900DF19CF /* DCT.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DCT.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +72,8 @@
 				8680B53716FA055500DF19CF /* main.c */,
 				8680B53916FA055500DF19CF /* ImageCompression.1 */,
 				8680B54916FA104F00DF19CF /* Im113.BMP */,
+				8680B54A16FA1BE400DF19CF /* DCT.c */,
+				8680B54C16FA1C6900DF19CF /* DCT.h */,
 			);
 			path = ImageCompression;
 			sourceTree = "<group>";
@@ -125,6 +130,7 @@
 			files = (
 				8680B53816FA055500DF19CF /* main.c in Sources */,
 				8680B54816FA0F9500DF19CF /* qdbmp.c in Sources */,
+				8680B54B16FA1BE400DF19CF /* DCT.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
