@@ -1,0 +1,228 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8680B53816FA055500DF19CF /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 8680B53716FA055500DF19CF /* main.c */; };
+		8680B53A16FA055500DF19CF /* ImageCompression.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8680B53916FA055500DF19CF /* ImageCompression.1 */; };
+		8680B54816FA0F9500DF19CF /* qdbmp.c in Sources */ = {isa = PBXBuildFile; fileRef = 8680B54616FA0F9500DF19CF /* qdbmp.c */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8680B53216FA055500DF19CF /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+				8680B53A16FA055500DF19CF /* ImageCompression.1 in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		8680B53416FA055500DF19CF /* ImageCompression */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ImageCompression; sourceTree = BUILT_PRODUCTS_DIR; };
+		8680B53716FA055500DF19CF /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		8680B53916FA055500DF19CF /* ImageCompression.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = ImageCompression.1; sourceTree = "<group>"; };
+		8680B54616FA0F9500DF19CF /* qdbmp.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = qdbmp.c; sourceTree = "<group>"; };
+		8680B54716FA0F9500DF19CF /* qdbmp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = qdbmp.h; sourceTree = "<group>"; };
+		8680B54916FA104F00DF19CF /* Im113.BMP */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = Im113.BMP; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8680B53116FA055500DF19CF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8680B52B16FA055500DF19CF = {
+			isa = PBXGroup;
+			children = (
+				8680B53616FA055500DF19CF /* ImageCompression */,
+				8680B53516FA055500DF19CF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8680B53516FA055500DF19CF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8680B53416FA055500DF19CF /* ImageCompression */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8680B53616FA055500DF19CF /* ImageCompression */ = {
+			isa = PBXGroup;
+			children = (
+				8680B54616FA0F9500DF19CF /* qdbmp.c */,
+				8680B54716FA0F9500DF19CF /* qdbmp.h */,
+				8680B53716FA055500DF19CF /* main.c */,
+				8680B53916FA055500DF19CF /* ImageCompression.1 */,
+				8680B54916FA104F00DF19CF /* Im113.BMP */,
+			);
+			path = ImageCompression;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8680B53316FA055500DF19CF /* ImageCompression */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8680B53D16FA055500DF19CF /* Build configuration list for PBXNativeTarget "ImageCompression" */;
+			buildPhases = (
+				8680B53016FA055500DF19CF /* Sources */,
+				8680B53116FA055500DF19CF /* Frameworks */,
+				8680B53216FA055500DF19CF /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ImageCompression;
+			productName = ImageCompression;
+			productReference = 8680B53416FA055500DF19CF /* ImageCompression */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8680B52C16FA055500DF19CF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+			};
+			buildConfigurationList = 8680B52F16FA055500DF19CF /* Build configuration list for PBXProject "ImageCompression" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 8680B52B16FA055500DF19CF;
+			productRefGroup = 8680B53516FA055500DF19CF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8680B53316FA055500DF19CF /* ImageCompression */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8680B53016FA055500DF19CF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8680B53816FA055500DF19CF /* main.c in Sources */,
+				8680B54816FA0F9500DF19CF /* qdbmp.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		8680B53B16FA055500DF19CF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		8680B53C16FA055500DF19CF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		8680B53E16FA055500DF19CF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		8680B53F16FA055500DF19CF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8680B52F16FA055500DF19CF /* Build configuration list for PBXProject "ImageCompression" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8680B53B16FA055500DF19CF /* Debug */,
+				8680B53C16FA055500DF19CF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8680B53D16FA055500DF19CF /* Build configuration list for PBXNativeTarget "ImageCompression" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8680B53E16FA055500DF19CF /* Debug */,
+				8680B53F16FA055500DF19CF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8680B52C16FA055500DF19CF /* Project object */;
+}
