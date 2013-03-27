@@ -9,10 +9,8 @@
 #ifndef ImageCompression_DCT_h
 #define ImageCompression_DCT_h
 
-void dct(float **DCTMatrix, float **Matrix, int N, int M);
-void idct(float **Matrix, float **DCTMatrix, int N, int M);
-float **calloc_mat(int dimX, int dimY);
-void free_mat(float **p);
+void dct(double data[8][8], const int color[8][8]);
 
+void idct(int colors[8][8], const double data[8][8]);
 
 #endif
