@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[     46291,       1112]
-NotebookOptionsPosition[     44638,       1051]
-NotebookOutlinePosition[     45249,       1076]
-CellTagsIndexPosition[     45163,       1071]
+NotebookDataLength[     56167,       1343]
+NotebookOptionsPosition[     54417,       1279]
+NotebookOutlinePosition[     55030,       1304]
+CellTagsIndexPosition[     54944,       1299]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -273,56 +273,47 @@ Cell[CellGroupData[{
 
 Cell[BoxData[{
  RowBox[{
-  RowBox[{"toVector", "=", 
-   RowBox[{
-    RowBox[{"{", "matrix", "}"}], "\[Function]", 
-    RowBox[{"(", "\[IndentingNewLine]", 
-     RowBox[{
-      RowBox[{"collector", "=", 
-       RowBox[{"pathItem", "\[Function]", 
-        RowBox[{"(", "\[IndentingNewLine]", 
-         RowBox[{
-          RowBox[{"element", "=", 
-           RowBox[{"matrix", "[", 
-            RowBox[{"[", 
-             RowBox[{
-              RowBox[{"pathItem", "[", 
-               RowBox[{"[", "1", "]"}], "]"}], ",", 
-              RowBox[{"pathItem", "[", 
-               RowBox[{"[", "2", "]"}], "]"}]}], "]"}], "]"}]}], ";", 
-          "\[IndentingNewLine]", "element"}], "\[IndentingNewLine]", 
-         ")"}]}]}], ";", "\[IndentingNewLine]", 
-      RowBox[{"Flatten", "[", 
-       RowBox[{
-        RowBox[{"Append", "[", 
-         RowBox[{
-          RowBox[{"{", "}"}], ",", 
-          RowBox[{"Map", "[", 
-           RowBox[{"collector", ",", "zigzagPath"}], "]"}]}], "]"}], ",", 
-        RowBox[{"{", 
-         RowBox[{"1", ",", "2"}], "}"}]}], "]"}]}], "\[IndentingNewLine]", 
-     ")"}]}]}], ";"}], "\[IndentingNewLine]", 
- RowBox[{
   RowBox[{
-   RowBox[{"RunLengthEncode", "[", "x_List", "]"}], ":=", 
-   RowBox[{
+   RowBox[{"toVector", "=", 
     RowBox[{
-     RowBox[{"{", 
+     RowBox[{"{", "matrix", "}"}], "\[Function]", 
+     RowBox[{"(", "\[IndentingNewLine]", 
       RowBox[{
-       RowBox[{"First", "[", "#", "]"}], ",", 
-       RowBox[{"Length", "[", "#", "]"}]}], "}"}], "&"}], "/@", 
-    RowBox[{"Split", "[", "x", "]"}]}]}], ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"rleTransformant", "=", 
-   RowBox[{"RunLengthEncode", "[", 
-    RowBox[{"toVector", "[", "transformant", "]"}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
+       RowBox[{"collector", "=", 
+        RowBox[{"pathItem", "\[Function]", 
+         RowBox[{"(", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"element", "=", 
+            RowBox[{"matrix", "[", 
+             RowBox[{"[", 
+              RowBox[{
+               RowBox[{"pathItem", "[", 
+                RowBox[{"[", "1", "]"}], "]"}], ",", 
+               RowBox[{"pathItem", "[", 
+                RowBox[{"[", "2", "]"}], "]"}]}], "]"}], "]"}]}], ";", 
+           "\[IndentingNewLine]", "element"}], "\[IndentingNewLine]", 
+          ")"}]}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"Flatten", "[", 
+        RowBox[{
+         RowBox[{"Append", "[", 
+          RowBox[{
+           RowBox[{"{", "}"}], ",", 
+           RowBox[{"Map", "[", 
+            RowBox[{"collector", ",", "zigzagPath"}], "]"}]}], "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"1", ",", "2"}], "}"}]}], "]"}]}], "\[IndentingNewLine]", 
+      ")"}]}]}], ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
-   RowBox[{"DCComponent", "=", 
-    RowBox[{"rleTransformant", "[", 
-     RowBox[{"[", 
-      RowBox[{"1", ",", "1"}], "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"RunLengthEncode", "[", "x_List", "]"}], ":=", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"First", "[", "#", "]"}], ",", 
+        RowBox[{"Length", "[", "#", "]"}]}], "}"}], "&"}], "/@", 
+     RowBox[{"Split", "[", "x", "]"}]}]}], ";"}], "\[IndentingNewLine]", 
   "\[IndentingNewLine]", 
   RowBox[{"(*", "\[IndentingNewLine]", 
    RowBox[{
@@ -384,362 +375,229 @@ Cell[BoxData[{
   "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
-   RowBox[{"encodeDeltaDC", "[", 
-    RowBox[{"{", 
-     RowBox[{"DC_", ",", "prevDeltaDC_"}], "}"}], "]"}], ":=", 
-   RowBox[{"Module", "[", 
-    RowBox[{
-     RowBox[{"{", "result", "}"}], ",", 
-     RowBox[{"(", "\[IndentingNewLine]", 
-      RowBox[{
-       RowBox[{"deltaDC", "=", 
-        RowBox[{"DC", "-", "prevDeltaDC"}]}], ";", "\[IndentingNewLine]", 
-       RowBox[{"DCPower", "=", 
-        RowBox[{
-         RowBox[{"BitLength", "[", "deltaDC", "]"}], "+", "1"}]}], ";", 
-       "\[IndentingNewLine]", 
-       RowBox[{"mainCodeValue", "=", 
-        RowBox[{"codingFormat", "[", 
-         RowBox[{"[", 
-          RowBox[{"DCPower", ",", "2"}], "]"}], "]"}]}], ";", 
-       "\[IndentingNewLine]", 
-       RowBox[{"additionalBitsCount", "=", 
-        RowBox[{"codingFormat", "[", 
-         RowBox[{"[", 
-          RowBox[{"DCPower", ",", "1"}], "]"}], "]"}]}], ";", 
-       "\[IndentingNewLine]", 
-       RowBox[{"binaryDeltaDC", "=", 
-        RowBox[{"If", "[", 
-         RowBox[{
-          RowBox[{"Positive", "[", "deltaDC", "]"}], ",", 
-          "\[IndentingNewLine]", 
-          RowBox[{"IntegerDigits", "[", 
-           RowBox[{"deltaDC", ",", "2"}], "]"}], ",", 
-          RowBox[{"not", "@", 
-           RowBox[{"IntegerDigits", "[", 
-            RowBox[{"deltaDC", ",", "2"}], "]"}]}]}], "]"}]}], ";", 
-       "\[IndentingNewLine]", "\[IndentingNewLine]", 
-       RowBox[{"result", "=", 
-        RowBox[{"Flatten", "[", 
-         RowBox[{
-          RowBox[{"{", 
-           RowBox[{
-            RowBox[{"IntegerDigits", "[", 
-             RowBox[{"mainCodeValue", ",", "2", ",", 
-              RowBox[{"codingFormat", "[", 
-               RowBox[{"[", 
-                RowBox[{"DCPower", ",", "3"}], "]"}], "]"}]}], "]"}], ",", 
-            RowBox[{"Take", "[", 
-             RowBox[{"binaryDeltaDC", ",", 
-              RowBox[{"-", "additionalBitsCount"}]}], "]"}]}], "}"}], ",", 
-          RowBox[{"{", 
-           RowBox[{"1", ",", "2"}], "}"}]}], "]"}]}], ";", 
-       "\[IndentingNewLine]", "result"}], "\[IndentingNewLine]", ")"}]}], 
-    "]"}]}], ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{
-   RowBox[{"encodedDelta", "=", 
+   RowBox[{
     RowBox[{"encodeDeltaDC", "[", 
      RowBox[{"{", 
-      RowBox[{"DCComponent", ",", "0"}], "}"}], "]"}]}], ";"}], 
-  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"scalableComponents", "=", 
-   RowBox[{"Map", "[", 
-    RowBox[{
-     RowBox[{"pair", "\[Function]", 
-      RowBox[{"(", 
-       RowBox[{"pair", "[", 
-        RowBox[{"[", "2", "]"}], "]"}], ")"}]}], ",", "NoDCtransformant", ",",
-      "1"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{
-   RowBox[{"encodeScalable", "[", 
-    RowBox[{"{", "scalableVector_", "}"}], "]"}], ":=", 
-   RowBox[{"Module", "[", 
-    RowBox[{
-     RowBox[{"{", 
-      RowBox[{"scalableComponents", "=", "scalableVector"}], "}"}], ",", 
-     "\[IndentingNewLine]", 
-     RowBox[{"(", "\[IndentingNewLine]", 
-      RowBox[{
-       RowBox[{"scalableComponents", "=", 
-        RowBox[{"Drop", "[", 
-         RowBox[{"scalableComponents", ",", 
-          RowBox[{"-", "1"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
-       RowBox[{"dynamicRange", "=", 
-        RowBox[{
-         RowBox[{"Max", "[", "scalableComponents", "]"}], "+", "1"}]}], ";", 
-       "\[IndentingNewLine]", 
-       RowBox[{"Map", "[", 
-        RowBox[{
-         RowBox[{"element", "\[Function]", 
-          RowBox[{"IntegerDigits", "[", 
-           RowBox[{"element", ",", "2", ",", "3"}], "]"}]}], ",", 
-         "scalableComponents"}], "]"}]}], "\[IndentingNewLine]", ")"}]}], 
-    "]"}]}], ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{
-   RowBox[{"encodedScalable", "=", 
-    RowBox[{"encodeScalable", "[", 
-     RowBox[{"{", "scalableComponents", "}"}], "]"}]}], ";"}], 
-  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"NoDCtransformant", "=", 
-   RowBox[{"Drop", "[", 
-    RowBox[{"rleTransformant", ",", "1"}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"NoLastZeroSeries", "=", 
-   RowBox[{"Drop", "[", 
-    RowBox[{"NoDCtransformant", ",", 
-     RowBox[{"-", "1"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"valuableComponents", "=", 
-   RowBox[{"Map", "[", 
-    RowBox[{
-     RowBox[{"pair", "\[Function]", 
-      RowBox[{"(", 
-       RowBox[{"pair", "[", 
-        RowBox[{"[", "1", "]"}], "]"}], ")"}]}], ",", "NoLastZeroSeries", ",",
-      "1"}], "]"}]}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{
-   RowBox[{"encodeValuable", "[", 
-    RowBox[{"{", "valuableVector_", "}"}], "]"}], ":=", 
-   RowBox[{"Module", "[", 
-    RowBox[{
-     RowBox[{"{", 
-      RowBox[{
-       RowBox[{"y0", "=", 
-        RowBox[{"(", 
-         RowBox[{
-          RowBox[{"Max", "[", "valuableVector", "]"}], "+", "1"}], ")"}]}], 
-       ",", 
-       RowBox[{"length", "=", 
-        RowBox[{"Length", "[", "valuableVector", "]"}]}], ",", 
-       RowBox[{"result", "=", "0"}]}], "}"}], ",", 
-     RowBox[{"(", "\[IndentingNewLine]", 
-      RowBox[{
+      RowBox[{"DC_", ",", "prevDeltaDC_"}], "}"}], "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", "result", "}"}], ",", 
+      RowBox[{"(", "\[IndentingNewLine]", 
        RowBox[{
-        RowBox[{"encodeValuable", "[", 
-         RowBox[{"{", 
-          RowBox[{
-          "element_", ",", "nextElement_", ",", "length_", ",", "index_"}], 
-          "}"}], "]"}], ":=", 
-        RowBox[{"Module", "[", 
+        RowBox[{"deltaDC", "=", 
+         RowBox[{"DC", "-", "prevDeltaDC"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"DCPower", "=", 
          RowBox[{
-          RowBox[{"{", "mu", "}"}], ",", 
-          RowBox[{"(", "\[IndentingNewLine]", 
-           RowBox[{
-            RowBox[{"mu", "=", 
-             RowBox[{"If", "[", 
-              RowBox[{
-               RowBox[{"element", ">", "nextElement"}], ",", "nextElement", 
-               ",", 
-               RowBox[{"nextElement", "-", "1"}]}], "]"}]}], ";", 
-            "\[IndentingNewLine]", 
-            RowBox[{"mu", "*", 
-             RowBox[{"(", 
-              RowBox[{
-               RowBox[{"(", 
-                RowBox[{"y0", "-", "1"}], ")"}], "^", 
-               RowBox[{"(", 
-                RowBox[{"length", "-", "index"}], ")"}]}], ")"}]}]}], 
-           "\[IndentingNewLine]", ")"}]}], "]"}]}], ";", 
-       "\[IndentingNewLine]", 
-       RowBox[{"vector", "=", 
-        RowBox[{"Prepend", "[", 
-         RowBox[{"valuableVector", ",", "y0"}], "]"}]}], ";", 
-       "\[IndentingNewLine]", 
-       RowBox[{"For", "[", 
-        RowBox[{
-         RowBox[{"i", "=", "1"}], ",", 
-         RowBox[{"i", "<=", "length"}], ",", 
-         RowBox[{"i", "++"}], ",", 
-         RowBox[{"(", "\[IndentingNewLine]", 
+          RowBox[{"BitLength", "[", "deltaDC", "]"}], "+", "1"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"mainCodeValue", "=", 
+         RowBox[{"codingFormat", "[", 
+          RowBox[{"[", 
+           RowBox[{"DCPower", ",", "2"}], "]"}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"additionalBitsCount", "=", 
+         RowBox[{"codingFormat", "[", 
+          RowBox[{"[", 
+           RowBox[{"DCPower", ",", "1"}], "]"}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"binaryDeltaDC", "=", 
+         RowBox[{"If", "[", 
           RowBox[{
-           RowBox[{"result", "+=", 
-            RowBox[{"encodeValuable", "[", 
-             RowBox[{"{", 
-              RowBox[{
-               RowBox[{"vector", "[", 
-                RowBox[{"[", "i", "]"}], "]"}], ",", 
-               RowBox[{"vector", "[", 
+           RowBox[{"Positive", "[", "deltaDC", "]"}], ",", 
+           "\[IndentingNewLine]", 
+           RowBox[{"IntegerDigits", "[", 
+            RowBox[{"deltaDC", ",", "2"}], "]"}], ",", 
+           RowBox[{"not", "@", 
+            RowBox[{"IntegerDigits", "[", 
+             RowBox[{"deltaDC", ",", "2"}], "]"}]}]}], "]"}]}], ";", 
+        "\[IndentingNewLine]", "\[IndentingNewLine]", 
+        RowBox[{"result", "=", 
+         RowBox[{"Flatten", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"IntegerDigits", "[", 
+              RowBox[{"mainCodeValue", ",", "2", ",", 
+               RowBox[{"codingFormat", "[", 
                 RowBox[{"[", 
-                 RowBox[{"i", "+", "1"}], "]"}], "]"}], ",", "length", ",", 
-               "i"}], "}"}], "]"}]}], ";", "\[IndentingNewLine]", "result"}], 
-          "\[IndentingNewLine]", ")"}]}], "]"}], ";", "\[IndentingNewLine]", 
-       RowBox[{"{", 
-        RowBox[{"result", ",", "y0"}], "}"}]}], "\[IndentingNewLine]", 
-      ")"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+                 RowBox[{"DCPower", ",", "3"}], "]"}], "]"}]}], "]"}], ",", 
+             RowBox[{"Take", "[", 
+              RowBox[{"binaryDeltaDC", ",", 
+               RowBox[{"-", "additionalBitsCount"}]}], "]"}]}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"1", ",", "2"}], "}"}]}], "]"}]}], ";", 
+        "\[IndentingNewLine]", "result"}], "\[IndentingNewLine]", ")"}]}], 
+     "]"}]}], ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
-   RowBox[{"codedValuable", "=", 
-    RowBox[{"encodeValuable", "[", 
-     RowBox[{"{", "valuableComponents", "}"}], "]"}]}], ";"}], 
-  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{
-   RowBox[{"decodeScalable", "[", 
-    RowBox[{"{", "scalableVector_", "}"}], "]"}], ":=", 
-   RowBox[{"Module", "[", 
-    RowBox[{
-     RowBox[{"{", 
-      RowBox[{"encodedScalable", "=", "scalableVector"}], "}"}], ",", 
-     "\[IndentingNewLine]", 
-     RowBox[{"(", "\[IndentingNewLine]", 
-      RowBox[{
-       RowBox[{"decodedScalable", "=", 
+   RowBox[{
+    RowBox[{"encodeScalable", "[", 
+     RowBox[{"{", "scalableVector_", "}"}], "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"scalableComponents", "=", "scalableVector"}], "}"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"(", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"scalableComponents", "=", 
+         RowBox[{"Drop", "[", 
+          RowBox[{"scalableComponents", ",", 
+           RowBox[{"-", "1"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"dynamicRange", "=", 
+         RowBox[{
+          RowBox[{"Max", "[", "scalableComponents", "]"}], "+", "1"}]}], ";", 
+        "\[IndentingNewLine]", 
         RowBox[{"Map", "[", 
          RowBox[{
           RowBox[{"element", "\[Function]", 
-           RowBox[{"FromDigits", "[", 
-            RowBox[{"element", ",", "2"}], "]"}]}], ",", "encodedScalable"}], 
-         "]"}]}], ";", "\[IndentingNewLine]", 
-       RowBox[{"lastZeroSerie", "=", 
-        RowBox[{
-         RowBox[{"8", "*", "8"}], "-", 
-         RowBox[{"Total", "[", "decodedScalable", "]"}], "-", "1"}]}], ";", 
-       "\[IndentingNewLine]", 
-       RowBox[{"Append", "[", 
-        RowBox[{"decodedScalable", ",", "lastZeroSerie"}], "]"}]}], 
-      "\[IndentingNewLine]", ")"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"decodedScalable", "=", 
-   RowBox[{"decodeScalable", "[", 
-    RowBox[{"{", "encodedScalable", "}"}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"encodedValuable", "=", 
-   RowBox[{"Append", "[", 
-    RowBox[{"codedValuable", ",", 
-     RowBox[{
-      RowBox[{"Length", "[", "decodedScalable", "]"}], "-", "1"}]}], "]"}]}], 
-  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"result", "=", 
-   RowBox[{"{", "}"}]}], ";"}], "\[IndentingNewLine]", 
+           RowBox[{"IntegerDigits", "[", 
+            RowBox[{"element", ",", "2", ",", "3"}], "]"}]}], ",", 
+          "scalableComponents"}], "]"}]}], "\[IndentingNewLine]", ")"}]}], 
+     "]"}]}], ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
-   RowBox[{"decodeValuable", "[", 
-    RowBox[{"{", 
+   RowBox[{
+    RowBox[{"encodeValuable", "[", 
+     RowBox[{"{", "valuableVector_", "}"}], "]"}], ":=", 
+    RowBox[{"Module", "[", 
      RowBox[{
-     "valuable_", ",", "dynamicRange_", ",", "valuableLength_", ",", "index_",
-       ",", "previousY_"}], "}"}], "]"}], ":=", 
-   RowBox[{"(", "\[IndentingNewLine]", 
-    RowBox[{"If", "[", 
-     RowBox[{
-      RowBox[{"index", "<=", "dynamicRange"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"y0", "=", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"Max", "[", "valuableVector", "]"}], "+", "1"}], ")"}]}], 
+        ",", 
+        RowBox[{"length", "=", 
+         RowBox[{"Length", "[", "valuableVector", "]"}]}], ",", 
+        RowBox[{"result", "=", "0"}]}], "}"}], ",", 
       RowBox[{"(", "\[IndentingNewLine]", 
        RowBox[{
-        RowBox[{"range", "=", 
-         RowBox[{
-          RowBox[{"(", 
-           RowBox[{"dynamicRange", "-", " ", "1"}], ")"}], "^", 
-          RowBox[{"(", 
-           RowBox[{"valuableLength", "-", "index"}], ")"}]}]}], ";", 
-        "\[IndentingNewLine]", 
-        RowBox[{"mu", "=", 
-         RowBox[{
-          RowBox[{"valuable", "/", "range"}], "//", "IntegerPart"}]}], ";", 
-        "\[IndentingNewLine]", 
-        RowBox[{"newValuable", "=", 
-         RowBox[{"valuable", "-", 
-          RowBox[{"mu", "*", "range"}]}]}], ";", "\[IndentingNewLine]", 
-        RowBox[{"newIndex", "=", 
-         RowBox[{"index", "+", "1"}]}], ";", "\[IndentingNewLine]", 
-        RowBox[{"If", "[", 
-         RowBox[{
-          RowBox[{"mu", "\[GreaterEqual]", " ", "previousY"}], ",", 
-          RowBox[{"mu", "+=", "1"}], ",", "mu"}], "]"}], ";", 
-        "\[IndentingNewLine]", 
-        RowBox[{"result", "=", 
-         RowBox[{"Append", "[", 
-          RowBox[{"result", ",", "mu"}], "]"}]}], ";", "\[IndentingNewLine]", 
-        
-        RowBox[{"decodeValuable", "[", 
-         RowBox[{"{", 
+        RowBox[{
+         RowBox[{"encodeValuable", "[", 
+          RowBox[{"{", 
+           RowBox[{
+           "element_", ",", "nextElement_", ",", "length_", ",", "index_"}], 
+           "}"}], "]"}], ":=", 
+         RowBox[{"Module", "[", 
           RowBox[{
-          "newValuable", ",", "dynamicRange", ",", "valuableLength", ",", 
-           "newIndex", ",", "mu"}], "}"}], "]"}]}], "\[IndentingNewLine]", 
-       ")"}], ",", "\[IndentingNewLine]", "result"}], "]"}], 
-    "\[IndentingNewLine]", ")"}]}], ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"decodeValuable", "[", 
-   RowBox[{"Join", "[", 
-    RowBox[{"encodedValuable", ",", 
-     RowBox[{"{", "1", "}"}], ",", 
-     RowBox[{"{", 
-      RowBox[{"encodedValuable", "[", 
-       RowBox[{"[", "2", "]"}], "]"}], "}"}]}], "]"}], "]"}], 
+           RowBox[{"{", "mu", "}"}], ",", 
+           RowBox[{"(", "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{"mu", "=", 
+              RowBox[{"If", "[", 
+               RowBox[{
+                RowBox[{"element", ">", "nextElement"}], ",", "nextElement", 
+                ",", 
+                RowBox[{"nextElement", "-", "1"}]}], "]"}]}], ";", 
+             "\[IndentingNewLine]", 
+             RowBox[{"mu", "*", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{"y0", "-", "1"}], ")"}], "^", 
+                RowBox[{"(", 
+                 RowBox[{"length", "-", "index"}], ")"}]}], ")"}]}]}], 
+            "\[IndentingNewLine]", ")"}]}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"vector", "=", 
+         RowBox[{"Prepend", "[", 
+          RowBox[{"valuableVector", ",", "y0"}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"For", "[", 
+         RowBox[{
+          RowBox[{"i", "=", "1"}], ",", 
+          RowBox[{"i", "<=", "length"}], ",", 
+          RowBox[{"i", "++"}], ",", 
+          RowBox[{"(", "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{"result", "+=", 
+             RowBox[{"encodeValuable", "[", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"vector", "[", 
+                 RowBox[{"[", "i", "]"}], "]"}], ",", 
+                RowBox[{"vector", "[", 
+                 RowBox[{"[", 
+                  RowBox[{"i", "+", "1"}], "]"}], "]"}], ",", "length", ",", 
+                "i"}], "}"}], "]"}]}], ";", "\[IndentingNewLine]", "result"}],
+            "\[IndentingNewLine]", ")"}]}], "]"}], ";", "\[IndentingNewLine]", 
+        RowBox[{"{", 
+         RowBox[{"result", ",", "y0"}], "}"}]}], "\[IndentingNewLine]", 
+       ")"}]}], "]"}]}], ";"}], 
   "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
-   RowBox[{"decodeDeltaDC", "[", 
+   RowBox[{"code", "[", 
     RowBox[{"{", 
-     RowBox[{"deltaDC_", ",", "previousDC_"}], "}"}], "]"}], ":=", 
+     RowBox[{"transformant_", ",", "previousDeltaDC_"}], "}"}], "]"}], ":=", 
    RowBox[{"Module", "[", 
     RowBox[{
-     RowBox[{"{", "result", "}"}], ",", 
+     RowBox[{"{", "}"}], ",", 
      RowBox[{"(", "\[IndentingNewLine]", 
       RowBox[{
-       RowBox[{"position", "=", 
-        RowBox[{"Position", "[", 
-         RowBox[{"encodingFormat", ",", 
-          RowBox[{"Length", "[", "deltaDC", "]"}]}], "]"}]}], ";", 
+       RowBox[{"rleTransformant", "=", 
+        RowBox[{"RunLengthEncode", "[", 
+         RowBox[{"toVector", "[", "transformant", "]"}], "]"}]}], ";", 
        "\[IndentingNewLine]", 
-       RowBox[{"codingSizes", "=", 
-        RowBox[{"codingFormat", "[", 
-         RowBox[{"[", 
-          RowBox[{"position", "[", 
-           RowBox[{"[", "1", "]"}], "]"}], "]"}], "]"}]}], ";", 
-       "\[IndentingNewLine]", 
-       RowBox[{"category", "=", 
-        RowBox[{"codingSizes", "[", 
+       RowBox[{"DCComponent", "=", 
+        RowBox[{"rleTransformant", "[", 
          RowBox[{"[", 
           RowBox[{"1", ",", "1"}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
-       RowBox[{"additionalCode", "=", 
-        RowBox[{"Take", "[", 
-         RowBox[{"deltaDC", ",", 
-          RowBox[{"-", "category"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
-       RowBox[{"decimalAdditionalCode", "=", 
-        RowBox[{"FromDigits", "[", 
-         RowBox[{"additionalCode", ",", "2"}], "]"}]}], ";", 
-       "\[IndentingNewLine]", 
-       RowBox[{"positiveInterval", "=", 
-        RowBox[{"Interval", "[", 
+       RowBox[{"encodedDeltaDC", "=", 
+        RowBox[{"encodeDeltaDC", "[", 
          RowBox[{"{", 
-          RowBox[{
-           RowBox[{"2", "^", 
-            RowBox[{"(", 
-             RowBox[{"category", "-", "1"}], ")"}]}], ",", 
-           RowBox[{
-            RowBox[{"2", "^", "category"}], "-", "1"}]}], "}"}], "]"}]}], ";",
-        "\[IndentingNewLine]", 
-       RowBox[{"result", "=", 
-        RowBox[{"If", "[", 
-         RowBox[{
-          RowBox[{"IntervalMemberQ", "[", 
-           RowBox[{"positiveInterval", ",", "decimalAdditionalCode"}], "]"}], 
-          ",", "\[IndentingNewLine]", "decimalAdditionalCode", ",", 
-          "\[IndentingNewLine]", 
-          RowBox[{"-", 
-           RowBox[{"FromDigits", "[", 
-            RowBox[{
-             RowBox[{"not", "@", 
-              RowBox[{"IntegerDigits", "[", 
-               RowBox[{"decimalAdditionalCode", ",", "2", ",", "category"}], 
-               "]"}]}], ",", "2"}], "]"}]}]}], "]"}]}], ";", 
+          RowBox[{"DCComponent", ",", "previousDeltaDC"}], "}"}], "]"}]}], 
+       ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{"NoDctransformant", "=", 
+        RowBox[{"Drop", "[", 
+         RowBox[{"rleTransformant", ",", "1"}], "]"}]}], ";", 
        "\[IndentingNewLine]", 
-       RowBox[{"result", "=", 
-        RowBox[{"previousDC", "+", "result"}]}], ";", "\[IndentingNewLine]", 
-       "result"}], "\[IndentingNewLine]", ")"}]}], "]"}]}], 
+       RowBox[{"NoLastZeroSeries", "=", 
+        RowBox[{"Drop", "[", 
+         RowBox[{"NoDCtransformant", ",", 
+          RowBox[{"-", "1"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"valuableComponents", "=", 
+        RowBox[{"Map", "[", 
+         RowBox[{
+          RowBox[{"pair", "\[Function]", 
+           RowBox[{"(", 
+            RowBox[{"pair", "[", 
+             RowBox[{"[", "1", "]"}], "]"}], ")"}]}], ",", "NoLastZeroSeries",
+           ",", "1"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"scalableComponents", "=", 
+        RowBox[{"Map", "[", 
+         RowBox[{
+          RowBox[{"pair", "\[Function]", 
+           RowBox[{"(", 
+            RowBox[{"pair", "[", 
+             RowBox[{"[", "2", "]"}], "]"}], ")"}]}], ",", "NoDCtransformant",
+           ",", "1"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       "\[IndentingNewLine]", 
+       RowBox[{"encodedScalable", "=", 
+        RowBox[{"encodeScalable", "[", 
+         RowBox[{"{", "scalableComponents", "}"}], "]"}]}], ";", 
+       "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{"encodedValuable", "=", 
+        RowBox[{"encodeValuable", "[", 
+         RowBox[{"{", "valuableComponents", "}"}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"encodedValuable", "=", 
+        RowBox[{"Append", "[", 
+         RowBox[{"encodedValuable", ",", 
+          RowBox[{
+           RowBox[{"Length", "[", "decodedScalable", "]"}], "-", "1"}]}], 
+         "]"}]}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{
+        "encodedDeltaDC", ",", "encodedScalable", ",", "encodedValuable"}], 
+        "}"}]}], "\[IndentingNewLine]", ")"}]}], "]"}]}], 
   ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"decodeDeltaDC", "[", 
+ RowBox[{"encodedTransformant", "=", 
+  RowBox[{"code", "[", 
    RowBox[{"{", 
-    RowBox[{"encodedDelta", ",", "0"}], "}"}], "]"}], ";"}]}], "Input",
+    RowBox[{"transformant", ",", "0"}], "}"}], "]"}]}]}], "Input",
  CellChangeTimes->{{3.573533132830234*^9, 3.573533136858684*^9}, {
    3.573533303127183*^9, 3.5735334333389482`*^9}, 3.5735335120464287`*^9, {
    3.573533594129961*^9, 3.573533600935295*^9}, {3.57353365450417*^9, 
@@ -878,57 +736,418 @@ Cell[BoxData[{
    3.573920205032926*^9, 3.5739202275660553`*^9}, {3.5739203440781813`*^9, 
    3.5739204442051764`*^9}, {3.5739204806008873`*^9, 3.573920638609033*^9}, {
    3.57392072286742*^9, 3.573920738321869*^9}, {3.573920772913788*^9, 
-   3.5739207938869877`*^9}}],
+   3.5739207938869877`*^9}, {3.574001717891233*^9, 3.574001748896947*^9}, {
+   3.574002004665092*^9, 3.574002019864544*^9}, 3.574002054909614*^9, {
+   3.574002127115437*^9, 3.574002749784419*^9}, {3.574002780297121*^9, 
+   3.574002797101037*^9}, {3.574002949747533*^9, 3.57400295165541*^9}, {
+   3.5740053915800447`*^9, 3.574005412937477*^9}}],
 
 Cell[BoxData[
  RowBox[{"{", 
-  RowBox[{"3", ",", "1", ",", "4", ",", "2", ",", "3", ",", "6", ",", "5"}], 
-  "}"}]], "Output",
- CellChangeTimes->{
-  3.573919342049036*^9, {3.573919400283104*^9, 3.573919405692203*^9}, {
-   3.5739194747468033`*^9, 3.573919508913926*^9}, {3.573919541825266*^9, 
-   3.5739195475875473`*^9}, {3.573919644156475*^9, 3.5739196647489367`*^9}, 
-   3.573919907130447*^9, {3.57392020691212*^9, 3.573920228267602*^9}, 
-   3.5739204689840117`*^9, {3.573920561831512*^9, 3.5739206393644123`*^9}, {
-   3.573920728134823*^9, 3.573920739041257*^9}, {3.57392077360601*^9, 
-   3.573920794379137*^9}}],
-
-Cell[BoxData[
- RowBox[{"{", 
-  RowBox[{"152171", ",", "7", ",", "7"}], "}"}]], "Output",
- CellChangeTimes->{
-  3.573919342049036*^9, {3.573919400283104*^9, 3.573919405692203*^9}, {
-   3.5739194747468033`*^9, 3.573919508913926*^9}, {3.573919541825266*^9, 
-   3.5739195475875473`*^9}, {3.573919644156475*^9, 3.5739196647489367`*^9}, 
-   3.573919907130447*^9, {3.57392020691212*^9, 3.573920228267602*^9}, 
-   3.5739204689840117`*^9, {3.573920561831512*^9, 3.5739206393644123`*^9}, {
-   3.573920728134823*^9, 3.573920739041257*^9}, {3.57392077360601*^9, 
-   3.573920794381317*^9}}],
-
-Cell[BoxData[
- RowBox[{"{", 
-  RowBox[{"3", ",", "1", ",", "4", ",", "2", ",", "3", ",", "6", ",", "5"}], 
-  "}"}]], "Output",
- CellChangeTimes->{
-  3.573919342049036*^9, {3.573919400283104*^9, 3.573919405692203*^9}, {
-   3.5739194747468033`*^9, 3.573919508913926*^9}, {3.573919541825266*^9, 
-   3.5739195475875473`*^9}, {3.573919644156475*^9, 3.5739196647489367`*^9}, 
-   3.573919907130447*^9, {3.57392020691212*^9, 3.573920228267602*^9}, 
-   3.5739204689840117`*^9, {3.573920561831512*^9, 3.5739206393644123`*^9}, {
-   3.573920728134823*^9, 3.573920739041257*^9}, {3.57392077360601*^9, 
-   3.573920794382998*^9}}]
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+    "1", ",", "1", ",", "0", ",", "1", ",", "1", ",", "0", ",", "1", ",", 
+     "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"0", ",", "1", ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "0", ",", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "0", ",", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "0", ",", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "0", ",", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "1", ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "0", ",", "1"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"152171", ",", "7", ",", "7"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.5740029105513163`*^9, 3.574005415032461*^9}]
 }, Open  ]],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[{
- RowBox[{"v", " ", "=", 
-  RowBox[{"{", 
-   RowBox[{"Minimum", "\[Rule]", "0.2"}], "}"}]}], "\[IndentingNewLine]", 
- RowBox[{"r", " ", "=", " ", 
+ RowBox[{
   RowBox[{
-   RowBox[{"A", " ", "+", " ", "Minimum"}], " ", "/.", " ", "v"}]}]}], "Input",\
+   RowBox[{"decodeScalable", "[", 
+    RowBox[{"{", "scalableVector_", "}"}], "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"encodedScalable", "=", "scalableVector"}], "}"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"(", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"decodedScalable", "=", 
+        RowBox[{"Map", "[", 
+         RowBox[{
+          RowBox[{"element", "\[Function]", 
+           RowBox[{"FromDigits", "[", 
+            RowBox[{"element", ",", "2"}], "]"}]}], ",", "encodedScalable"}], 
+         "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"lastZeroSerie", "=", 
+        RowBox[{
+         RowBox[{"8", "*", "8"}], "-", 
+         RowBox[{"Total", "[", "decodedScalable", "]"}], "-", "1"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Append", "[", 
+        RowBox[{"decodedScalable", ",", "lastZeroSerie"}], "]"}]}], 
+      "\[IndentingNewLine]", ")"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"decodedScalable", "=", 
+    RowBox[{"decodeScalable", "[", 
+     RowBox[{"{", "encodedScalable", "}"}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"decodeValuable", "[", 
+     RowBox[{"{", 
+      RowBox[{
+      "valuable_", ",", "dynamicRange_", ",", "valuableLength_", ",", 
+       "index_", ",", "previousY_"}], "}"}], "]"}], ":=", 
+    RowBox[{"(", "\[IndentingNewLine]", 
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{"index", "<=", "dynamicRange"}], ",", 
+       RowBox[{"(", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"range", "=", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"dynamicRange", "-", " ", "1"}], ")"}], "^", 
+           RowBox[{"(", 
+            RowBox[{"valuableLength", "-", "index"}], ")"}]}]}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"mu", "=", 
+          RowBox[{
+           RowBox[{"valuable", "/", "range"}], "//", "IntegerPart"}]}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"newValuable", "=", 
+          RowBox[{"valuable", "-", 
+           RowBox[{"mu", "*", "range"}]}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{"newIndex", "=", 
+          RowBox[{"index", "+", "1"}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{"If", "[", 
+          RowBox[{
+           RowBox[{"mu", "\[GreaterEqual]", " ", "previousY"}], ",", 
+           RowBox[{"mu", "+=", "1"}], ",", "mu"}], "]"}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"result", "=", 
+          RowBox[{"Append", "[", 
+           RowBox[{"result", ",", "mu"}], "]"}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{"decodeValuable", "[", 
+          RowBox[{"{", 
+           RowBox[{
+           "newValuable", ",", "dynamicRange", ",", "valuableLength", ",", 
+            "newIndex", ",", "mu"}], "}"}], "]"}]}], "\[IndentingNewLine]", 
+        ")"}], ",", "\[IndentingNewLine]", "result"}], "]"}], 
+     "\[IndentingNewLine]", ")"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"decodeDeltaDC", "[", 
+     RowBox[{"{", 
+      RowBox[{"deltaDC_", ",", "previousDC_"}], "}"}], "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", "result", "}"}], ",", 
+      RowBox[{"(", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"position", "=", 
+         RowBox[{"Position", "[", 
+          RowBox[{"encodingFormat", ",", 
+           RowBox[{"Length", "[", "deltaDC", "]"}]}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"codingSizes", "=", 
+         RowBox[{"codingFormat", "[", 
+          RowBox[{"[", 
+           RowBox[{"position", "[", 
+            RowBox[{"[", "1", "]"}], "]"}], "]"}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"category", "=", 
+         RowBox[{"codingSizes", "[", 
+          RowBox[{"[", 
+           RowBox[{"1", ",", "1"}], "]"}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"additionalCode", "=", 
+         RowBox[{"Take", "[", 
+          RowBox[{"deltaDC", ",", 
+           RowBox[{"-", "category"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"decimalAdditionalCode", "=", 
+         RowBox[{"FromDigits", "[", 
+          RowBox[{"additionalCode", ",", "2"}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"positiveInterval", "=", 
+         RowBox[{"Interval", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"2", "^", 
+             RowBox[{"(", 
+              RowBox[{"category", "-", "1"}], ")"}]}], ",", 
+            RowBox[{
+             RowBox[{"2", "^", "category"}], "-", "1"}]}], "}"}], "]"}]}], 
+        ";", "\[IndentingNewLine]", 
+        RowBox[{"result", "=", 
+         RowBox[{"If", "[", 
+          RowBox[{
+           RowBox[{"IntervalMemberQ", "[", 
+            RowBox[{"positiveInterval", ",", "decimalAdditionalCode"}], "]"}],
+            ",", "\[IndentingNewLine]", "decimalAdditionalCode", ",", 
+           "\[IndentingNewLine]", 
+           RowBox[{"-", 
+            RowBox[{"FromDigits", "[", 
+             RowBox[{
+              RowBox[{"not", "@", 
+               RowBox[{"IntegerDigits", "[", 
+                RowBox[{"decimalAdditionalCode", ",", "2", ",", "category"}], 
+                "]"}]}], ",", "2"}], "]"}]}]}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"result", "=", 
+         RowBox[{"previousDC", "+", "result"}]}], ";", "\[IndentingNewLine]", 
+        "result"}], "\[IndentingNewLine]", ")"}]}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"rleDecode", "=", 
+    RowBox[{
+     RowBox[{"{", "vector", "}"}], "\[Function]", 
+     RowBox[{"(", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"Map", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"{", "pair", "}"}], "\[Function]", 
+          RowBox[{"(", "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{"repeatCount", "=", 
+             RowBox[{"pair", "[", 
+              RowBox[{"[", "2", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+            RowBox[{"repeatValue", "=", 
+             RowBox[{"pair", "[", 
+              RowBox[{"[", "1", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+            RowBox[{"newList", "=", 
+             RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+            RowBox[{"For", "[", 
+             RowBox[{
+              RowBox[{"i", "=", "1"}], ",", 
+              RowBox[{"i", "<=", "repeatCount"}], ",", 
+              RowBox[{"i", "++"}], ",", 
+              RowBox[{"newList", "=", 
+               RowBox[{"Append", "[", 
+                RowBox[{"newList", ",", "repeatValue"}], "]"}]}]}], "]"}], 
+            ";", "\[IndentingNewLine]", 
+            RowBox[{"{", "newList", "}"}]}], "\[IndentingNewLine]", ")"}]}], 
+         ",", "vector"}], "]"}], "//", "Flatten"}], "\[IndentingNewLine]", 
+      ")"}]}]}], ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"toMatrix", "=", 
+   RowBox[{
+    RowBox[{"{", "vector", "}"}], "\[Function]", 
+    RowBox[{"(", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"emptyList", "=", 
+       RowBox[{"PadRight", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"{", "}"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"8", ",", "8"}], "}"}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"inserter", "=", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"path", ",", "index"}], "}"}], "\[Function]", 
+        RowBox[{"(", "\[IndentingNewLine]", 
+         RowBox[{"emptyList", "=", 
+          RowBox[{"ReplacePart", "[", 
+           RowBox[{"emptyList", ",", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"path", "[", 
+                RowBox[{"[", "1", "]"}], "]"}], ",", 
+               RowBox[{"path", "[", 
+                RowBox[{"[", "2", "]"}], "]"}]}], "}"}], "->", 
+             RowBox[{"vector", "[", 
+              RowBox[{"[", "index", "]"}], "]"}]}]}], "]"}]}], 
+         "\[IndentingNewLine]", ")"}]}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"MapIndexed", "[", 
+       RowBox[{"inserter", ",", "zigzagPath"}], "]"}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Flatten", "[", 
+       RowBox[{"emptyList", ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", "1", "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"2", ",", "3"}], "}"}]}], "}"}]}], "]"}]}], 
+     "\[IndentingNewLine]", ")"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"decode", "[", 
+    RowBox[{"{", 
+     RowBox[{
+     "encodedDeltaDC_", ",", "encodedScalable_", ",", "encodedValuable_", ",",
+       "previousDC_"}], "}"}], "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", "}"}], ",", 
+     RowBox[{"(", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"decodedScalable", "=", 
+        RowBox[{"decodeScalable", "[", 
+         RowBox[{"{", "encodedScalable", "}"}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"result", "=", 
+        RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"decodedValuable", "=", 
+        RowBox[{"decodeValuable", "[", 
+         RowBox[{"Join", "[", 
+          RowBox[{"encodedValuable", ",", 
+           RowBox[{"{", "1", "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"encodedValuable", "[", 
+             RowBox[{"[", "2", "]"}], "]"}], "}"}]}], "]"}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"decodedDeltaDC", "=", 
+        RowBox[{"decodeDeltaDC", "[", 
+         RowBox[{"{", 
+          RowBox[{"encodedDeltaDC", ",", "previousDC"}], "}"}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"decodedValuable", "=", 
+        RowBox[{"Append", "[", 
+         RowBox[{"decodedValuable", ",", "0"}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"rleFormedVector", "=", 
+        RowBox[{"MapThread", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"value", ",", "scale"}], "}"}], "\[Function]", 
+           RowBox[{"(", 
+            RowBox[{"{", 
+             RowBox[{"value", ",", "scale"}], "}"}], ")"}]}], ",", 
+          RowBox[{"{", 
+           RowBox[{"decodedValuable", ",", "decodedScalable"}], "}"}]}], 
+         "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"Prepend", "[", 
+          RowBox[{"rleFormedVector", ",", 
+           RowBox[{"{", 
+            RowBox[{"decodedDeltaDC", ",", "1"}], "}"}]}], "]"}], "//", 
+         "rleDecode"}], "//", "toMatrix"}]}], "\[IndentingNewLine]", ")"}]}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"transformant", "//", "MatrixForm"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"decode", "[", 
+    RowBox[{"Append", "[", 
+     RowBox[{"encodedTransformant", ",", "0"}], "]"}], "]"}], "//", 
+   "MatrixForm"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.57400280014087*^9, 3.574002801427011*^9}, {
+   3.5740028470198317`*^9, 3.574002991973435*^9}, {3.5740030377613907`*^9, 
+   3.574003039481288*^9}, {3.574003161505396*^9, 3.574003368434063*^9}, {
+   3.574003526909754*^9, 3.574003548995718*^9}, {3.574003610206373*^9, 
+   3.574003612181055*^9}, {3.5740037343866367`*^9, 3.5740037370331717`*^9}, 
+   3.574003770719314*^9, {3.574003803095985*^9, 3.5740038060560217`*^9}, {
+   3.574003861245481*^9, 3.574003864604889*^9}, {3.574003902838767*^9, 
+   3.5740040102740793`*^9}, {3.5740045628595257`*^9, 3.574004568622365*^9}, {
+   3.574004677051317*^9, 3.574004830136635*^9}, {3.574004861145809*^9, 
+   3.574004880111062*^9}, {3.5740049349556437`*^9, 3.574004976107251*^9}, {
+   3.574005006839594*^9, 3.5740050132592993`*^9}, {3.574005075399734*^9, 
+   3.5740052484991426`*^9}, {3.574005438884533*^9, 3.574005463384861*^9}}],
 
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {"26", "3", "1", "5", "0", "0", "0", "0"},
+     {"3", "4", "6", "0", "0", "0", "0", "0"},
+     {"2", "6", "0", "0", "0", "0", "0", "0"},
+     {"3", "0", "0", "0", "0", "0", "0", "0"},
+     {"0", "0", "0", "0", "0", "0", "0", "0"},
+     {"0", "0", "0", "0", "0", "0", "0", "0"},
+     {"0", "0", "0", "0", "0", "0", "0", "0"},
+     {"0", "0", "0", "0", "0", "0", "0", "0"}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{{3.574002127585698*^9, 3.574002148160121*^9}, 
+   3.5740021890551643`*^9, 3.5740022612928257`*^9, {3.574002711113956*^9, 
+   3.574002751223525*^9}, 3.574003384802452*^9, {3.5740035299990797`*^9, 
+   3.57400354941966*^9}, 3.574003738267747*^9, 3.5740039621544943`*^9, 
+   3.574004744318602*^9, {3.574004790470615*^9, 3.5740048380655737`*^9}, {
+   3.574004869026175*^9, 3.5740048810650454`*^9}, 3.5740049356724377`*^9, 
+   3.574004977203032*^9, 3.574005017465316*^9, {3.574005093445445*^9, 
+   3.574005107103911*^9}, 3.57400514876989*^9, {3.574005187226403*^9, 
+   3.574005249074828*^9}, 3.5740054653294287`*^9}],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {"26", "3", "1", "5", "0", "0", "0", "0"},
+     {"3", "4", "6", "0", "0", "0", "0", "0"},
+     {"2", "6", "0", "0", "0", "0", "0", "0"},
+     {"3", "0", "0", "0", "0", "0", "0", "0"},
+     {"0", "0", "0", "0", "0", "0", "0", "0"},
+     {"0", "0", "0", "0", "0", "0", "0", "0"},
+     {"0", "0", "0", "0", "0", "0", "0", "0"},
+     {"0", "0", "0", "0", "0", "0", "0", "0"}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{{3.574002127585698*^9, 3.574002148160121*^9}, 
+   3.5740021890551643`*^9, 3.5740022612928257`*^9, {3.574002711113956*^9, 
+   3.574002751223525*^9}, 3.574003384802452*^9, {3.5740035299990797`*^9, 
+   3.57400354941966*^9}, 3.574003738267747*^9, 3.5740039621544943`*^9, 
+   3.574004744318602*^9, {3.574004790470615*^9, 3.5740048380655737`*^9}, {
+   3.574004869026175*^9, 3.5740048810650454`*^9}, 3.5740049356724377`*^9, 
+   3.574004977203032*^9, 3.574005017465316*^9, {3.574005093445445*^9, 
+   3.574005107103911*^9}, 3.57400514876989*^9, {3.574005187226403*^9, 
+   3.574005249074828*^9}, 3.574005465336005*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{
+   RowBox[{"v", " ", "=", 
+    RowBox[{"{", 
+     RowBox[{"Minimum", "\[Rule]", "0.2"}], "}"}]}], "\[IndentingNewLine]", 
+   RowBox[{"r", " ", "=", " ", 
+    RowBox[{
+     RowBox[{"A", " ", "+", " ", "Minimum"}], " ", "/.", " ", "v"}]}]}], 
+  "*)"}]], "Input",
  CellChangeTimes->{{3.573557662020151*^9, 3.573557673824575*^9}, {
   3.573557714574978*^9, 3.573557736764512*^9}}],
 
@@ -947,8 +1166,10 @@ Cell[BoxData[
 Cell[CellGroupData[{
 
 Cell[BoxData[
- RowBox[{
-  RowBox[{"table", "[", "\"\<key\>\"", "]"}], "=", "value"}]], "Input",
+ RowBox[{"(*", 
+  RowBox[{
+   RowBox[{"table", "[", "\"\<key\>\"", "]"}], "=", "value"}], 
+  "*)"}]], "Input",
  CellChangeTimes->{{3.573557803633754*^9, 3.573557821861936*^9}}],
 
 Cell[BoxData["value"], "Output",
@@ -958,8 +1179,9 @@ Cell[BoxData["value"], "Output",
 Cell[CellGroupData[{
 
 Cell[BoxData[
- RowBox[{"A", " ", "+", " ", 
-  RowBox[{"table", "[", "\"\<key\>\"", "]"}]}]], "Input",
+ RowBox[{"(*", 
+  RowBox[{"A", " ", "+", " ", 
+   RowBox[{"table", "[", "\"\<key\>\"", "]"}]}], "*)"}]], "Input",
  CellChangeTimes->{{3.573557824602552*^9, 3.573557831029263*^9}}],
 
 Cell[BoxData[
@@ -970,7 +1192,8 @@ Cell[BoxData[
 Cell[CellGroupData[{
 
 Cell[BoxData[
- RowBox[{"?", "table"}]], "Input",
+ RowBox[{"(*", 
+  RowBox[{"?", "table"}], "*)"}]], "Input",
  CellChangeTimes->{{3.573557838682667*^9, 3.5735578405477743`*^9}}],
 
 Cell[CellGroupData[{
@@ -1010,17 +1233,21 @@ Cell[BoxData[
 }, Open  ]],
 
 Cell[BoxData[
- RowBox[{
+ RowBox[{"(*", 
   RowBox[{
-   RowBox[{"table", "[", "key2", "]"}], "=", "value2"}], ";"}]], "Input",
+   RowBox[{
+    RowBox[{"table", "[", "key2", "]"}], "=", "value2"}], ";"}], 
+  "*)"}]], "Input",
  CellChangeTimes->{{3.573557847849607*^9, 3.573557854539462*^9}}],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
- RowBox[{"v", " ", "=", " ", 
-  RowBox[{"{", 
-   RowBox[{"2", ",", "4", ",", "6", ",", "8", ",", "11"}], "}"}]}]], "Input",
+ RowBox[{"(*", 
+  RowBox[{"v", " ", "=", " ", 
+   RowBox[{"{", 
+    RowBox[{"2", ",", "4", ",", "6", ",", "8", ",", "11"}], "}"}]}], 
+  "*)"}]], "Input",
  CellChangeTimes->{{3.573557929257318*^9, 3.5735579385414963`*^9}}],
 
 Cell[BoxData[
@@ -1032,12 +1259,13 @@ Cell[BoxData[
 Cell[CellGroupData[{
 
 Cell[BoxData[
- RowBox[{"v", " ", "=", " ", 
-  RowBox[{"{", 
-   RowBox[{
-    RowBox[{"v", "-", 
-     RowBox[{"Min", "[", "v", "]"}]}], ",", 
-    RowBox[{"Min", "[", "v", "]"}]}], "}"}]}]], "Input",
+ RowBox[{"(*", 
+  RowBox[{"v", " ", "=", " ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"v", "-", 
+      RowBox[{"Min", "[", "v", "]"}]}], ",", 
+     RowBox[{"Min", "[", "v", "]"}]}], "}"}]}], "*)"}]], "Input",
  CellChangeTimes->{{3.573557973595237*^9, 3.5735579880738573`*^9}}],
 
 Cell[BoxData[
@@ -1062,15 +1290,15 @@ StyleDefinitions->"Default.nb"
 (*CellTagsOutline
 CellTagsIndex->{
  "Info3573565059-1646466"->{
-  Cell[42490, 977, 122, 2, 39, "Print",
+  Cell[52179, 1200, 122, 2, 39, "Print",
    CellTags->"Info3573565059-1646466"],
-  Cell[42615, 981, 903, 26, 52, "Print",
+  Cell[52304, 1204, 903, 26, 52, "Print",
    CellTags->"Info3573565059-1646466"]}
  }
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"Info3573565059-1646466", 44978, 1063}
+ {"Info3573565059-1646466", 54757, 1291}
  }
 *)
 (*NotebookFileOutline
@@ -1078,41 +1306,44 @@ Notebook[{
 Cell[557, 20, 791, 16, 141, "Input"],
 Cell[1351, 38, 10395, 231, 1108, "Input"],
 Cell[CellGroupData[{
-Cell[11771, 273, 27393, 607, 1972, "Input"],
-Cell[39167, 882, 615, 11, 27, "Output"],
-Cell[39785, 895, 577, 10, 27, "Output"],
-Cell[40365, 907, 615, 11, 27, "Output"]
+Cell[11771, 273, 22807, 469, 1522, "Input"],
+Cell[34581, 744, 873, 25, 43, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[41017, 923, 368, 9, 43, "Input"],
-Cell[41388, 934, 179, 4, 27, "Output"],
-Cell[41570, 940, 164, 3, 27, "Output"]
+Cell[35491, 774, 11930, 293, 1063, "Input"],
+Cell[47424, 1069, 1558, 32, 153, "Output"],
+Cell[48985, 1103, 1556, 32, 153, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[41771, 948, 161, 3, 27, "Input"],
-Cell[41935, 953, 74, 1, 27, "Output"]
+Cell[50578, 1140, 416, 11, 43, "Input"],
+Cell[50997, 1153, 179, 4, 27, "Output"],
+Cell[51179, 1159, 164, 3, 27, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[42046, 959, 167, 3, 27, "Input"],
-Cell[42216, 964, 96, 2, 27, "Output"]
+Cell[51380, 1167, 190, 5, 27, "Input"],
+Cell[51573, 1174, 74, 1, 27, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[42349, 971, 116, 2, 27, "Input"],
+Cell[51684, 1180, 193, 4, 27, "Input"],
+Cell[51880, 1186, 96, 2, 27, "Output"]
+}, Open  ]],
 Cell[CellGroupData[{
-Cell[42490, 977, 122, 2, 39, "Print",
+Cell[52013, 1193, 141, 3, 27, "Input"],
+Cell[CellGroupData[{
+Cell[52179, 1200, 122, 2, 39, "Print",
  CellTags->"Info3573565059-1646466"],
-Cell[42615, 981, 903, 26, 52, "Print",
+Cell[52304, 1204, 903, 26, 52, "Print",
  CellTags->"Info3573565059-1646466"]
 }, Open  ]]
 }, Open  ]],
-Cell[43545, 1011, 174, 4, 27, "Input"],
+Cell[53234, 1234, 204, 6, 27, "Input"],
 Cell[CellGroupData[{
-Cell[43744, 1019, 205, 4, 27, "Input"],
-Cell[43952, 1025, 169, 3, 27, "Output"]
+Cell[53463, 1244, 235, 6, 27, "Input"],
+Cell[53701, 1252, 169, 3, 27, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[44158, 1033, 264, 7, 27, "Input"],
-Cell[44425, 1042, 197, 6, 27, "Output"]
+Cell[53907, 1260, 294, 8, 27, "Input"],
+Cell[54204, 1270, 197, 6, 27, "Output"]
 }, Open  ]]
 }
 ]
